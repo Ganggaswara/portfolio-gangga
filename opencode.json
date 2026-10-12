@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "9router": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "9Router",
+      "options": {
+        "baseURL": "http://192.168.1.30:8251/v1",
+        "apiKey": "sk-d6ec48fe58da0f19-34r44y-91b16fc7"
+      },
+      "models": {
+        "UNDIKSHA": {
+          "name": "UNDIKSHA"
+        }
+      }
+    }
+  },
+  "model": "9router/Coding-Max"
+}
+
+
