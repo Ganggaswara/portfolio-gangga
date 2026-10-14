@@ -24,7 +24,7 @@ export function SkillsAdminPage() {
                   const v = Number(e.target.value);
                   setItems(items.map((it, j) => (j === i ? { ...it, level: v } : it)));
                 }}
-                className="w-full accent-cyan-400"
+                className="w-full accent-electric"
               />
             </div>
           ))}

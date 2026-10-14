@@ -40,7 +40,7 @@ export function Particles({ density = 60 }: { density?: number }) {
         const y = d.y * h;
         ctx.beginPath();
         ctx.arc(x, y, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = d.cyan ? `rgba(0,229,255,${d.o})` : `rgba(255,46,99,${d.o * 0.7})`;
+        ctx.fillStyle = d.cyan ? `rgba(252,241,208,${d.o})` : `rgba(252,241,208,${d.o * 0.45})`;
         ctx.fill();
       }
       raf = requestAnimationFrame(frame);

@@ -31,7 +31,7 @@ export function DashboardPage() {
           {trend.map((v, i) => (
             <div
               key={i}
-              className="flex-1 rounded-t-lg bg-gradient-to-t from-electric/20 to-electric/80 shadow-[0_0_14px_rgba(0,229,255,0.35)]"
+              className="flex-1 rounded-t-lg bg-gradient-to-t from-electric/20 to-electric/80 shadow-[0_0_14px_rgba(252,241,208,0.3)]"
               style={{ height: `${(v / max) * 100}%` }}
               title={`Hari ${i + 1}: ${v}`}
             />

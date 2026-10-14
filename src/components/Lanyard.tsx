@@ -711,7 +711,7 @@ const Lanyard = ({
   size = 0.6,
   anchor = 'center',
   strapLength = 0.5,
-  strapImage,
+  strapImage = '',
   strapColor = '#111111',
   strapWidth = 0.65,
   metal = 'silver',
@@ -722,7 +722,7 @@ const Lanyard = ({
   interactive = true,
   intro = true,
   className = '',
-  style
+  style = {}
 }) => {
   const containerRef = useRef(null);
   const settingsRef = useRef(null);
@@ -1102,7 +1102,7 @@ const Lanyard = ({
 
     const physics = () => {
       const s = settingsRef.current;
-      const gravity = 40 * clamp(s.gravity, 0, 1.5);
+      const gravity = 40 * clamp(s.gravity, 0, 3);
       const weight = Math.max(gravity, 20);
       const springy = clamp(s.elasticity, 0, 1);
       const settle = clamp(s.damping, 0, 1);

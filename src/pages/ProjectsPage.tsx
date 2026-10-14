@@ -61,7 +61,7 @@ export function ProjectsPage() {
               }}
               className={`rounded-full border px-5 py-2 font-ui text-xs font-bold tracking-widest uppercase transition ${
                 cat === c
-                  ? 'border-electric/60 bg-electric/10 text-white shadow-[0_0_18px_rgba(0,229,255,0.3)]'
+                  ? 'border-electric/60 bg-electric/10 text-white shadow-[0_0_18px_rgba(252,241,208,0.25)]'
                   : 'border-white/12 text-slate-400 hover:border-white/30 hover:text-white'
               }`}
             >
@@ -84,8 +84,8 @@ export function ProjectsPage() {
         {pageItems.map((p, i) => (
           <Reveal key={p.slug} delay={Math.min(i * 0.05, 0.3)}>
             <Link to={`/projects/${p.slug}`} className="glass card-hover group block overflow-hidden !p-0">
-              <div className="relative overflow-hidden">
-                <img src={p.thumbnail} alt={p.title} className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div className="scroll-thumb relative aspect-[4/3] overflow-hidden">
+                <img src={p.thumbnail} alt={p.title} className="h-full w-full" loading="lazy" />
                 <span className="chip absolute top-3 left-3 !bg-void/70 backdrop-blur">{p.category}</span>
               </div>
               <div className="p-5">

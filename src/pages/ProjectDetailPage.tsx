@@ -70,7 +70,7 @@ export function ProjectDetailPage() {
                 <Code2 size={14} /> Repo
               </a>
             </div>
-            <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule mt-3 w-full justify-center border-neon/50 !text-white hover:shadow-[0_0_24px_rgba(255,46,99,0.4)]">
+            <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule mt-3 w-full justify-center border-neon/50 !text-white hover:shadow-[0_0_24px_rgba(252,241,208,0.3)]">
               <MessageCircle size={15} /> Diskusi proyek ini via WA
             </a>
           </div>

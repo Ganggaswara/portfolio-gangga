@@ -16,7 +16,7 @@ export function CTASection() {
             aria-hidden="true"
             style={{
               background:
-                'radial-gradient(600px 300px at 50% 0%, rgba(0,229,255,0.16), transparent 65%), radial-gradient(500px 300px at 50% 110%, rgba(255,46,99,0.12), transparent 60%)',
+                'radial-gradient(600px 300px at 50% 0%, rgba(252,241,208,0.14), transparent 65%), radial-gradient(500px 300px at 50% 110%, rgba(34,57,111,0.5), transparent 60%)',
             }}
           />
           <p className="hud-label relative">Respons di bawah 24 jam</p>
