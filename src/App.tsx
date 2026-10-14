@@ -4,6 +4,7 @@ import Lenis from 'lenis';
 import { AdminLayout } from './components/AdminLayout';
 import { PublicLayout } from './components/PublicLayout';
 import { Home } from './pages/Home';
+import { BlogPage } from './pages/BlogPage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
 import { ExperiencePage } from './pages/ExperiencePage';
@@ -24,7 +25,7 @@ function ScrollManager() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     if (hash) {
-      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
+      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
       window.scrollTo(0, 0);
     }
@@ -56,6 +57,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="projects" element={<ProjectsPage />} />
           <Route path="projects/:slug" element={<ProjectDetailPage />} />
+          <Route path="blog" element={<BlogPage />} />
           <Route path="experience" element={<ExperiencePage />} />
           <Route path="thanks" element={<ThanksPage />} />
           <Route path="*" element={<NotFoundPage />} />
