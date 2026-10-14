@@ -2,8 +2,6 @@ import { Helmet } from 'react-helmet-async';
 import { profile } from '../data/dummy';
 import { HeroSection } from '../sections/HeroSection';
 import { ProfileSection } from '../sections/ProfileSection';
-import { AchievementSection } from '../sections/AchievementSection';
-import { PhilosophySection } from '../sections/PhilosophySection';
 import { FeaturedProjectsSection } from '../sections/FeaturedProjectsSection';
 import { ExperienceTimelineSection } from '../sections/ExperienceTimelineSection';
 import { CTASection } from '../sections/CTASection';
@@ -29,12 +27,10 @@ export function Home() {
       <HeroSection />
       <GlowDivider />
       <ProfileSection />
-      <AchievementSection />
-      <GlowDivider />
-      <PhilosophySection />
-      <FeaturedProjectsSection />
       <GlowDivider />
       <ExperienceTimelineSection />
+      <GlowDivider />
+      <FeaturedProjectsSection />
       <CTASection />
     </>
   );
