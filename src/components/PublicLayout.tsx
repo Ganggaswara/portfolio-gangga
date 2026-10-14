@@ -1,19 +1,93 @@
-import { Download, Menu, MessageCircle, X } from 'lucide-react';
-import { useState } from 'react';
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Rocket, Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { profile } from '../data/dummy';
-import { waLink } from '../lib/utils';
 
 const links = [
-  { to: '/#profil', label: 'Profil' },
-  { to: '/projects', label: 'Karya' },
-  { to: '/experience', label: 'Jejak' },
+  { to: '/', label: 'Home', key: 'Home' },
+  { to: '/#about', label: 'About', key: 'About' },
+  { to: '/experience', label: 'Experience', key: 'Experience' },
+  { to: '/projects', label: 'Projects', key: 'Projects' },
+  { to: '/#cta', label: 'Contact', key: 'Contact' },
+  { to: '/blog', label: 'Blog', key: 'Blog' },
 ];
+
+function routeKey(pathname: string, hash: string) {
+  if (pathname.startsWith('/projects')) return 'Projects';
+  if (pathname.startsWith('/blog')) return 'Blog';
+  if (pathname.startsWith('/experience')) return 'Experience';
+  if (pathname === '/') {
+    if (hash === '#about') return 'About';
+    if (hash === '#cta') return 'Contact';
+    return 'Home';
+  }
+  return 'Home';
+}
 
 export function PublicLayout() {
   const [open, setOpen] = useState(false);
   const loc = useLocation();
-  const wa = waLink(profile.whatsapp, 'Halo Raka, saya menemukan portofolio Anda dan ingin berdiskusi.');
+  const [active, setActive] = useState(() => routeKey(loc.pathname, loc.hash));
+  const [pill, setPill] = useState({ left: 0, width: 0 });
+  const barRef = useRef<HTMLDivElement>(null);
+  const tabRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const lockRef = useRef(0);
+  const tickRef = useRef(0);
+
+  const measure = () => {
+    const el = tabRefs.current[active];
+    if (!el) return;
+    setPill((prev) => {
+      const left = el.offsetLeft;
+      const width = el.offsetWidth;
+      if (prev.left === left && prev.width === width) return prev;
+      return { left, width };
+    });
+  };
+
+  useEffect(() => {
+    measure();
+  }, [active]);
+
+  useEffect(() => {
+    measure();
+    const t = setTimeout(measure, 100);
+    window.addEventListener('resize', measure);
+    return () => {
+      window.removeEventListener('resize', measure);
+      clearTimeout(t);
+    };
+  }, []);
+
+  useEffect(() => {
+    const next = routeKey(loc.pathname, loc.hash);
+    lockRef.current = Date.now() + 900;
+    setActive((prev) => (prev === next ? prev : next));
+  }, [loc.pathname, loc.hash]);
+
+  useEffect(() => {
+    if (loc.pathname !== '/') return;
+    const onScroll = () => {
+      if (tickRef.current) return;
+      tickRef.current = requestAnimationFrame(() => {
+        tickRef.current = 0;
+        if (Date.now() < lockRef.current) return;
+        const about = document.getElementById('about');
+        const cta = document.getElementById('cta');
+        const mid = window.innerHeight * 0.5;
+        const ctaTop = cta?.getBoundingClientRect().top ?? Infinity;
+        const aboutTop = about?.getBoundingClientRect().top ?? Infinity;
+        const next = ctaTop < mid ? 'Contact' : aboutTop < mid ? 'About' : 'Home';
+        setActive((prev) => (prev === next ? prev : next));
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (tickRef.current) cancelAnimationFrame(tickRef.current);
+    };
+  }, [loc.pathname]);
 
   return (
     <div className="noise relative min-h-[100dvh] bg-void text-mist">
@@ -23,44 +97,49 @@ export function PublicLayout() {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(600px 400px at 15% 0%, rgba(0,229,255,0.12), transparent 60%), radial-gradient(700px 500px at 90% 20%, rgba(139,92,246,0.14), transparent 60%), radial-gradient(500px 400px at 50% 100%, rgba(255,46,99,0.08), transparent 60%)',
+            'radial-gradient(600px 400px at 15% 0%, rgba(252,241,208,0.1), transparent 60%), radial-gradient(700px 500px at 90% 20%, rgba(34,57,111,0.55), transparent 60%), radial-gradient(500px 400px at 50% 100%, rgba(34,57,111,0.4), transparent 60%)',
         }}
       />
 
       <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
         <nav className="glass flex h-16 w-full max-w-4xl items-center justify-between !rounded-full px-4 sm:px-6">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3" aria-label="Home">
             <span className="font-display flex h-9 w-9 items-center justify-center rounded-full border border-electric/40 bg-electric/10 text-sm tracking-widest text-electric">
               {profile.monogram}
             </span>
-            <span className="font-ui hidden text-xs font-bold tracking-[0.2em] text-white sm:block">
-              RAKA ADIT
-            </span>
           </Link>
-          <div className="hidden items-center gap-7 md:flex">
-            {links.map((l) => (
-              <NavLink
-                key={l.label}
-                to={l.to}
-                className="font-ui text-[0.72rem] font-semibold tracking-[0.18em] text-slate-300 uppercase transition hover:text-electric"
-              >
-                {l.label}
-              </NavLink>
-            ))}
+          <div ref={barRef} className="relative hidden items-center gap-1 p-1 md:flex">
+            <span
+              aria-hidden="true"
+              className="absolute top-1 bottom-1 rounded-full bg-electric transition-[left,width] duration-300 ease-out"
+              style={{ left: pill.left, width: pill.width }}
+            />
+            {links.map((l) => {
+              const isActive = active === l.key;
+              return (
+                <Link
+                  key={l.label}
+                  ref={(el) => {
+                    tabRefs.current[l.key] = el;
+                  }}
+                  to={l.to}
+                  onClick={() => {
+                    lockRef.current = Date.now() + 900;
+                    setActive(l.key);
+                  }}
+                  className={`relative rounded-full px-4 py-2 font-ui text-[0.72rem] font-semibold tracking-[0.18em] uppercase transition-colors duration-200 ${
+                    isActive ? 'text-void' : 'text-slate-300 hover:text-electric'
+                  }`}
+                >
+                  <span className="relative z-10">{l.label}</span>
+                </Link>
+              );
+            })}
           </div>
           <div className="hidden items-center gap-2 md:flex">
-            <a
-              href={wa}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-capsule btn-ghost !px-5 !py-2 !text-[0.7rem]"
-            >
-              <MessageCircle size={14} />
-              WhatsApp
-            </a>
             <a href={`${loc.pathname}#cta`} className="btn-capsule btn-primary !px-5 !py-2 !text-[0.7rem]">
-              <Download size={14} />
-              CV
+              <Rocket size={14} />
+              View CV
             </a>
           </div>
           <button
@@ -75,7 +154,7 @@ export function PublicLayout() {
 
       {open && (
         <div className="glass fixed inset-x-4 top-24 z-50 flex flex-col gap-2 p-4 md:hidden">
-          {[...links, { to: '/#cta', label: 'Download CV' }].map((l) => (
+          {links.map((l) => (
             <Link
               key={l.label}
               to={l.to}
