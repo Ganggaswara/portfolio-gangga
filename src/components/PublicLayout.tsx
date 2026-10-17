@@ -2,6 +2,7 @@ import { Rocket, Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { profile } from '../data/dummy';
+import { BrandIcon } from './BrandIcon';
 
 const links = [
   { to: '/', label: 'Home', key: 'Home' },
@@ -105,7 +106,7 @@ export function PublicLayout() {
       />
 
       <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
-        <nav className="glass flex h-16 w-full max-w-4xl items-center justify-between !rounded-full px-4 sm:px-6">
+        <nav className="glass flex h-16 w-full max-w-4xl items-center justify-between !rounded-full px-4 max-md:!bg-navy sm:px-6">
           <Link to="/" className="flex items-center gap-3" aria-label="Home">
             <span className="font-display flex h-9 w-9 items-center justify-center rounded-full border border-electric/40 bg-electric/10 text-sm tracking-widest text-electric">
               {profile.monogram}
@@ -156,7 +157,7 @@ export function PublicLayout() {
       </header>
 
       {open && (
-        <div className="glass fixed inset-x-4 top-24 z-50 flex flex-col gap-2 p-4 md:hidden">
+        <div className="glass fixed inset-x-4 top-24 z-50 flex flex-col gap-2 p-4 !bg-navy md:hidden">
           {links.map((l) => (
             <Link
               key={l.label}
@@ -183,10 +184,18 @@ export function PublicLayout() {
               {profile.location} <span className="mx-2 text-white/20">/</span> {profile.email}
             </p>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2.5">
             {profile.socials.map((s) => (
-              <a key={s.platform} href={s.url} target="_blank" rel="noreferrer" className="chip hover:border-electric/50 hover:text-white">
-                {s.platform}
+              <a
+                key={s.platform}
+                href={s.url}
+                target="_blank"
+                rel="noreferrer"
+                title={s.platform}
+                aria-label={s.platform}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.03] text-slate-300 transition hover:-translate-y-1 hover:border-electric/60 hover:text-electric hover:shadow-[0_0_20px_rgba(252,241,208,0.35)]"
+              >
+                <BrandIcon platform={s.platform} size={16} />
               </a>
             ))}
           </div>
