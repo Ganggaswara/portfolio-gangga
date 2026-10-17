@@ -123,7 +123,7 @@ export function ProfileSection() {
                     rel="noreferrer"
                     title={s.platform}
                     aria-label={s.platform}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.03] text-slate-300 transition hover:-translate-y-1 hover:border-electric/60 hover:text-electric hover:shadow-[0_0_20px_rgba(0,229,255,0.35)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.03] text-slate-300 transition hover:-translate-y-1 hover:border-electric/60 hover:text-electric hover:shadow-[0_0_20px_rgba(252,241,208,0.35)]"
                   >
                     <BrandIcon platform={s.platform} size={16} />
                   </a>
