@@ -1,4 +1,4 @@
-import { Download, MessageCircle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { profile } from '../data/dummy';
 import { waLink } from '../lib/utils';
 import { Particles } from '../components/Particles';
@@ -24,21 +24,14 @@ export function CTASection() {
             PUNYA IDE? WUJUDKAN SEKARANG.
           </h2>
           <p className="relative mx-auto mt-3 max-w-[52ch] text-sm leading-relaxed text-slate-300">
-            Ceritakan kebutuhan Anda lewat WhatsApp atau unduh CV untuk review internal tim.
+            Ceritakan kebutuhan Anda lewat WhatsApp
           </p>
           <div className="relative mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/cv-sample.pdf" download className="btn-capsule btn-primary">
-              <Download size={15} />
-              Download CV
-            </a>
-            <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule btn-ghost">
+            <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule btn-primary">
               <MessageCircle size={15} />
               Chat WhatsApp
             </a>
           </div>
-          <p className="relative mt-5 font-mono text-[0.65rem] tracking-[0.18em] text-slate-500 uppercase">
-            {profile.email} / {profile.whatsapp}
-          </p>
         </div>
       </Reveal>
     </section>
