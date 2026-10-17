@@ -9,7 +9,7 @@ export function ExperienceTimelineSection() {
     <section id="experience" className="mx-auto w-full max-w-6xl scroll-mt-28 px-5 py-10 sm:py-16">
       <p className="hud-label">Experience</p>
       <h2 className="font-display mt-4 max-w-[12ch] text-5xl leading-[0.95] text-white sm:text-6xl">
-        WORK THAT{' '}
+        THINGS THAT{' '}
         <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
           SHAPED ME.
         </span>

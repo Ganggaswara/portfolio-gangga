@@ -10,7 +10,12 @@ export function ExperiencePage() {
         <title>Jejak Karier, Gangga Swara</title>
       </Helmet>
       <p className="hud-label">Experience</p>
-      <h1 className="font-display mt-2 text-6xl text-white sm:text-7xl">EXPERIENCE</h1>
+      <h1 className="font-display mt-2 max-w-[12ch] text-6xl leading-[0.95] text-white sm:text-7xl">
+        THINGS THAT{' '}
+        <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
+          SHAPED ME.
+        </span>
+      </h1>
       <p className="mt-3 max-w-[58ch] text-sm leading-relaxed text-slate-400">
         My professional journey across teams and products I helped ship.
       </p>
@@ -52,7 +57,7 @@ export function ExperiencePage() {
               <div key={d.institution} className="border-t border-white/10 py-4 first:border-0 first:pt-0">
                 <h3 className="font-ui font-bold text-white">{d.institution}</h3>
                 <p className="text-sm text-slate-400">{d.degree} {d.field} / {d.period}</p>
-                <p className="mt-1 text-[0.83rem] text-slate-300">{d.detail}</p>
+                {d.detail && <p className="mt-1 text-[0.83rem] text-slate-300">{d.detail}</p>}
               </div>
             ))}
           </Card>
