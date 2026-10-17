@@ -30,16 +30,28 @@ export function Home() {
       </Helmet>
       <HeroSection />
       <GlowDivider />
-      <ProfileSection />
+      <div className="cv-auto">
+        <ProfileSection />
+      </div>
       <GlowDivider />
-      <ExperienceTimelineSection />
+      <div className="cv-auto">
+        <ExperienceTimelineSection />
+      </div>
       <GlowDivider />
-      <FeaturedProjectsSection />
+      <div className="cv-auto">
+        <FeaturedProjectsSection />
+      </div>
       <GlowDivider />
-      <ServicesSection />
+      <div className="cv-auto">
+        <ServicesSection />
+      </div>
       <GlowDivider />
-      <ProcessSection />
-      <CTASection />
+      <div className="cv-auto">
+        <ProcessSection />
+      </div>
+      <div className="cv-auto">
+        <CTASection />
+      </div>
     </>
   );
 }

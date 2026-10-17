@@ -154,6 +154,11 @@ body {
   color: rgba(252, 241, 208, 0.85);
 }
 
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
 .card-hover { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s, border-color 0.35s; }
 .card-hover:hover {
   transform: translateY(-4px) scale(1.02);

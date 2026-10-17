@@ -33,7 +33,7 @@ export function HeroSection() {
     >
       <Particles density={40} />
       <motion.div
-        className="pointer-events-none absolute h-[480px] w-[480px] rounded-full opacity-25 blur-[120px]"
+        className="pointer-events-none absolute h-[480px] w-[480px] rounded-full opacity-25"
         style={{ left: glowX, top: glowY, background: 'radial-gradient(circle, #fcf1d0, transparent 65%)' }}
         aria-hidden="true"
       />

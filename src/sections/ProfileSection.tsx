@@ -1,4 +1,4 @@
-import { Suspense, lazy, useRef } from 'react';
+import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { MapPin, GraduationCap } from 'lucide-react';
 import { useInView } from 'motion/react';
 import { profile } from '../data/dummy';
@@ -11,7 +11,28 @@ const Lanyard = lazy(() => import('../components/Lanyard'));
 export function ProfileSection() {
   const { t } = useI18n();
   const cardRef = useRef<HTMLDivElement>(null);
-  const showLanyard = useInView(cardRef, { margin: '400px 0px 400px 0px', once: true });
+  const nearCard = useInView(cardRef, { margin: '200px 0px 200px 0px', once: true });
+  const [idleReady, setIdleReady] = useState(false);
+  const showLanyard = nearCard || idleReady;
+
+  useEffect(() => {
+    let idleId: number | null = null;
+    let timeoutId: number | null = null;
+    const arm = () => {
+      if (typeof window.requestIdleCallback === 'function') {
+        idleId = window.requestIdleCallback(() => setIdleReady(true), { timeout: 2500 });
+      } else {
+        timeoutId = window.setTimeout(() => setIdleReady(true), 1500);
+      }
+    };
+    if (document.readyState === 'complete') arm();
+    else window.addEventListener('load', arm, { once: true });
+    return () => {
+      window.removeEventListener('load', arm);
+      if (idleId !== null) window.cancelIdleCallback(idleId);
+      if (timeoutId !== null) window.clearTimeout(timeoutId);
+    };
+  }, []);
   const metaTiles = [
     { icon: MapPin, label: t.about.basedIn, value: profile.location },
     { icon: GraduationCap, label: t.about.educationLabel, value: t.about.eduValue },
@@ -50,7 +71,7 @@ export function ProfileSection() {
               <span aria-hidden="true" className="absolute bottom-2 left-0 h-6 w-6 border-b-2 border-l-2 border-electric/60" />
               <span aria-hidden="true" className="absolute right-0 bottom-2 h-6 w-6 border-r-2 border-b-2 border-electric/60" />
               <div
-                className="pointer-events-none absolute top-1/2 left-1/2 -z-0 h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-[90px]"
+                className="pointer-events-none absolute top-1/2 left-1/2 -z-0 h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40"
                 aria-hidden="true"
                 style={{ background: 'radial-gradient(circle, rgba(0,229,255,0.35), transparent 65%)' }}
               />
