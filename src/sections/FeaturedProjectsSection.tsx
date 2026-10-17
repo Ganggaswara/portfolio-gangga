@@ -9,19 +9,14 @@ export function FeaturedProjectsSection() {
 
   return (
     <section className="mx-auto w-full max-w-6xl px-5 py-20">
-      <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-        <div className="max-w-3xl">
-          <p className="hud-label">Projects</p>
-          <h2 className="font-display mt-4 max-w-[14ch] text-5xl leading-[0.95] text-white sm:text-6xl">
-            WORKS &{' '}
-            <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
-              CREATIVE EXPERIMENTS.
-            </span>
-          </h2>
-        </div>
-        <Link to="/projects" className="btn-capsule btn-ghost !px-5 !py-2 !text-[0.7rem]">
-          Semua karya <ArrowRight size={14} />
-        </Link>
+      <div className="mb-10 max-w-3xl">
+        <p className="hud-label">Projects</p>
+        <h2 className="font-display mt-4 max-w-[14ch] text-5xl leading-[0.95] text-white sm:text-6xl">
+          WORKS &{' '}
+          <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
+            CREATIVE EXPERIMENTS.
+          </span>
+        </h2>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
@@ -84,6 +79,12 @@ export function FeaturedProjectsSection() {
             </Link>
           </Reveal>
         ))}
+      </div>
+
+      <div className="mt-8 flex justify-center">
+        <Link to="/projects" className="btn-capsule btn-primary">
+          Lihat Semua Karya <ArrowRight size={15} />
+        </Link>
       </div>
     </section>
   );
