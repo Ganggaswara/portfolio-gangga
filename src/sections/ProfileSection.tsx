@@ -1,5 +1,6 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useRef } from 'react';
 import { MapPin, GraduationCap } from 'lucide-react';
+import { useInView } from 'motion/react';
 import { profile } from '../data/dummy';
 import { BrandIcon } from '../components/BrandIcon';
 import { Reveal } from '../components/Reveal';
@@ -14,6 +15,8 @@ const metaTiles = [
 ];
 
 export function ProfileSection() {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const showLanyard = useInView(cardRef, { margin: '400px 0px 400px 0px', once: true });
   return (
     <section id="about" className="relative mx-auto w-full max-w-6xl scroll-mt-28 px-5 py-20 sm:py-28">
       <div
@@ -41,7 +44,7 @@ export function ProfileSection() {
 
       <div className="relative mt-10 grid gap-5 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
-          <div className="relative h-[520px] overflow-hidden sm:h-[600px] lg:h-[500px]">
+          <div ref={cardRef} className="relative h-[520px] overflow-hidden sm:h-[600px] lg:h-[500px]">
             <div className="relative h-full">
               <span aria-hidden="true" className="absolute top-2 left-0 h-6 w-6 border-t-2 border-l-2 border-electric/60" />
               <span aria-hidden="true" className="absolute top-2 right-0 h-6 w-6 border-t-2 border-r-2 border-electric/60" />
@@ -52,29 +55,37 @@ export function ProfileSection() {
                 aria-hidden="true"
                 style={{ background: 'radial-gradient(circle, rgba(0,229,255,0.35), transparent 65%)' }}
               />
-              <Suspense
-                fallback={
-                  <div className="flex h-full items-center justify-center">
-                    <p className="font-mono text-xs tracking-widest text-slate-500 uppercase">
-                      Loading ID card
-                    </p>
+              {showLanyard ? (
+                <Suspense
+                  fallback={
+                    <div className="flex h-full items-center justify-center">
+                      <p className="font-mono text-xs tracking-widest text-slate-500 uppercase">
+                        Loading ID card
+                      </p>
+                    </div>
+                  }
+                >
+                  <div className="h-full w-full lg:origin-center lg:scale-[0.88]">
+                    <Lanyard
+                      frontImage="/lanyard-front.jpg"
+                      backImage="/lanyard-back.jpg"
+                      cardColor="#0D1C42"
+                      strapColor="#FCF1D0"
+                      finish="glossy"
+                      size={0.66}
+                      strapLength={0.5}
+                      gravity={1}
+                      breeze={0.35}
+                    />
                   </div>
-                }
-              >
-                <div className="h-full w-full lg:origin-center lg:scale-[0.88]">
-                  <Lanyard
-                    frontImage="/lanyard-front.jpg"
-                    backImage="/lanyard-back.jpg"
-                    cardColor="#0D1C42"
-                    strapColor="#FCF1D0"
-                    finish="glossy"
-                    size={0.66}
-                    strapLength={0.5}
-                    gravity={1}
-                    breeze={0.35}
-                  />
+                </Suspense>
+              ) : (
+                <div className="flex h-full items-center justify-center">
+                  <p className="font-mono text-xs tracking-widest text-slate-500 uppercase">
+                    Loading ID card
+                  </p>
                 </div>
-              </Suspense>
+              )}
             </div>
           </div>
           <p className="mt-3 text-center font-mono text-[0.62rem] tracking-[0.2em] text-slate-500 uppercase">
