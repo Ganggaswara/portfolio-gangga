@@ -1,8 +1,8 @@
-import pacemakerImg from '../assets/projects/pacemaker.jpg';
-import woodcraftImg from '../assets/projects/woodcraft.jpg';
-import csrLensImg from '../assets/projects/CsrLens.jpeg';
-import sintekImg from '../assets/projects/sintek.jpg';
-import solanaImg from '../assets/projects/solana-agent.jpg';
+import pacemakerImg from '../assets/projects/pacemaker.webp';
+import woodcraftImg from '../assets/projects/woodcraft.webp';
+import csrLensImg from '../assets/projects/csr-lens.webp';
+import sintekImg from '../assets/projects/sintek.webp';
+import solanaImg from '../assets/projects/solana-agent.webp';
 
 export const profile = {
   name: 'Gangga Swara',
@@ -15,7 +15,7 @@ export const profile = {
   email: 'ganggaswara11@gmail.com',
   location: 'Bali, Indonesia',
   availability: 'Open for collaboration',
-  heroImage: '/portofolio.png',
+  heroImage: '/portofolio.webp',
   aboutImage: 'https://picsum.photos/seed/raka-studio/880/640',
   socials: [
     { platform: 'GitHub', url: 'https://github.com/Ganggaswara' },

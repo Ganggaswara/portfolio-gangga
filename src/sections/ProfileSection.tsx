@@ -67,8 +67,8 @@ export function ProfileSection() {
                 >
                   <div className="h-full w-full lg:origin-center lg:scale-[0.88]">
                     <Lanyard
-                      frontImage="/lanyard-front.jpg"
-                      backImage="/lanyard-back.jpg"
+                      frontImage="/lanyard-front.webp"
+                      backImage="/lanyard-back.webp"
                       cardColor="#0D1C42"
                       strapColor="#FCF1D0"
                       finish="glossy"
