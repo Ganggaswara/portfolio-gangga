@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import { AdminLayout } from './components/AdminLayout';
+import { PageLoader } from './components/PageLoader';
 import { PublicLayout } from './components/PublicLayout';
 import { Home } from './pages/Home';
 import { BlogPage } from './pages/BlogPage';
@@ -52,6 +53,7 @@ export default function App() {
 
   return (
     <>
+      <PageLoader />
       <ScrollManager />
       <Routes>
         <Route element={<PublicLayout />}>
