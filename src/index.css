@@ -182,19 +182,14 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transform: translateY(0);
+  transition: object-position 8s ease-in-out;
 }
 .scroll-thumb:hover img {
-  animation: thumbScroll 12s ease-in-out forwards;
-}
-@keyframes thumbScroll {
-  0% { object-position: top center; }
-  42% { object-position: bottom center; }
-  58% { object-position: bottom center; }
-  100% { object-position: top center; }
+  object-position: bottom center;
+  transition-duration: 7s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .scroll-thumb:hover img { animation: none; }
+  .scroll-thumb img { transition: none; }
 }
 
 @keyframes pulseRing {
