@@ -8,6 +8,7 @@ import { BlogPage } from './pages/BlogPage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
 import { ExperiencePage } from './pages/ExperiencePage';
+import { ServicesPage } from './pages/ServicesPage';
 import { ThanksPage } from './pages/ThanksPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { LoginPage } from './pages/admin/LoginPage';
@@ -59,6 +60,7 @@ export default function App() {
           <Route path="projects/:slug" element={<ProjectDetailPage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="experience" element={<ExperiencePage />} />
+          <Route path="services" element={<ServicesPage />} />
           <Route path="thanks" element={<ThanksPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

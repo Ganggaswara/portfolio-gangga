@@ -3,6 +3,7 @@ import { profile } from '../data/dummy';
 import { HeroSection } from '../sections/HeroSection';
 import { ProfileSection } from '../sections/ProfileSection';
 import { FeaturedProjectsSection } from '../sections/FeaturedProjectsSection';
+import { ServicesSection } from '../sections/ServicesSection';
 import { ExperienceTimelineSection } from '../sections/ExperienceTimelineSection';
 import { CTASection } from '../sections/CTASection';
 import { GlowDivider } from '../components/ui';
@@ -31,6 +32,8 @@ export function Home() {
       <ExperienceTimelineSection />
       <GlowDivider />
       <FeaturedProjectsSection />
+      <GlowDivider />
+      <ServicesSection />
       <CTASection />
     </>
   );

@@ -5,9 +5,9 @@ import { profile } from '../data/dummy';
 
 const links = [
   { to: '/', label: 'Home', key: 'Home' },
-  { to: '/#about', label: 'About', key: 'About' },
   { to: '/experience', label: 'Experience', key: 'Experience' },
   { to: '/projects', label: 'Projects', key: 'Projects' },
+  { to: '/services', label: 'Services', key: 'Services' },
   { to: '/#cta', label: 'Contact', key: 'Contact' },
   { to: '/blog', label: 'Blog', key: 'Blog' },
 ];
@@ -16,8 +16,8 @@ function routeKey(pathname: string, hash: string) {
   if (pathname.startsWith('/projects')) return 'Projects';
   if (pathname.startsWith('/blog')) return 'Blog';
   if (pathname.startsWith('/experience')) return 'Experience';
+  if (pathname.startsWith('/services')) return 'Services';
   if (pathname === '/') {
-    if (hash === '#about') return 'About';
     if (hash === '#cta') return 'Contact';
     return 'Home';
   }
@@ -72,12 +72,15 @@ export function PublicLayout() {
       tickRef.current = requestAnimationFrame(() => {
         tickRef.current = 0;
         if (Date.now() < lockRef.current) return;
-        const about = document.getElementById('about');
+        const services = document.getElementById('services');
+        const experience = document.getElementById('experience');
         const cta = document.getElementById('cta');
         const mid = window.innerHeight * 0.5;
         const ctaTop = cta?.getBoundingClientRect().top ?? Infinity;
-        const aboutTop = about?.getBoundingClientRect().top ?? Infinity;
-        const next = ctaTop < mid ? 'Contact' : aboutTop < mid ? 'About' : 'Home';
+        const servicesTop = services?.getBoundingClientRect().top ?? Infinity;
+        const expTop = experience?.getBoundingClientRect().top ?? Infinity;
+        const next =
+          ctaTop < mid ? 'Contact' : servicesTop < mid ? 'Services' : expTop < mid ? 'Experience' : 'Home';
         setActive((prev) => (prev === next ? prev : next));
       });
     };
@@ -137,7 +140,7 @@ export function PublicLayout() {
             })}
           </div>
           <div className="hidden items-center gap-2 md:flex">
-            <a href={`${loc.pathname}#cta`} className="btn-capsule btn-primary !px-5 !py-2 !text-[0.7rem]">
+            <a href="/#cta" className="btn-capsule btn-primary !px-5 !py-2 !text-[0.7rem]">
               <Rocket size={14} />
               View CV
             </a>

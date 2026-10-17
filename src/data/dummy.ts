@@ -161,6 +161,30 @@ export const projects: Project[] = [
   },
 ];
 
+export const services = [
+  {
+    icon: 'code',
+    title: 'Web Development',
+    description:
+      'Pembuatan website fungsional dan user-friendly, dari company profile dan landing page sampai aplikasi web dengan data dinamis.',
+    deliverables: ['Company Profile', 'Landing Page', 'Web App', 'Responsive'],
+  },
+  {
+    icon: 'ai',
+    title: 'AI & Machine Learning',
+    description:
+      'Eksplorasi dan implementasi machine learning, dari pencarian dokumen berbasis RAG sampai integrasi model ke produk.',
+    deliverables: ['RAG Pipeline', 'LLM Integration', 'Python'],
+  },
+  {
+    icon: 'seo',
+    title: 'SEO Optimization',
+    description:
+      'Optimasi teknis dan konten agar website mudah ditemukan mesin pencari: struktur, performa, dan meta yang rapi.',
+    deliverables: ['Technical SEO', 'On-Page SEO', 'Page Speed'],
+  },
+] as const;
+
 export const experience = [
   {
     company: 'CV Sinar Teknologi Indonesia',
