@@ -5,7 +5,7 @@ import { Particles } from '../components/Particles';
 import { Reveal } from '../components/Reveal';
 
 export function CTASection() {
-  const wa = waLink(profile.whatsapp, 'Halo Raka, saya menemukan portofolio Anda dan tertarik untuk berdiskusi.');
+  const wa = waLink(profile.whatsapp, 'Halo Gangga, saya menemukan portofolio Anda dan tertarik untuk berdiskusi.');
   return (
     <section id="cta" className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-28">
       <Reveal>

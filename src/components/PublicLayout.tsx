@@ -178,7 +178,7 @@ export function PublicLayout() {
         <div className="glow-line mb-8" />
         <div className="glass flex flex-col gap-6 p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="font-display text-2xl tracking-wide text-white">RAKA ADITYA PRATAMA</p>
+            <p className="font-display text-2xl tracking-wide text-white">{profile.name.toUpperCase()}</p>
             <p className="mt-1 text-sm text-slate-400">
               {profile.location} <span className="mx-2 text-white/20">/</span> {profile.email}
             </p>
@@ -192,7 +192,7 @@ export function PublicLayout() {
           </div>
         </div>
         <p className="mt-5 text-center font-mono text-[0.68rem] tracking-[0.18em] text-slate-500 uppercase">
-          2026 Raka Aditya. Built with precision.
+          2026 {profile.name}. Built with precision.
         </p>
       </footer>
     </div>

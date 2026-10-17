@@ -57,7 +57,7 @@ export function AdminLayout() {
         <div className="glass mt-4 flex items-center gap-3 p-3">
           <Award size={18} className="text-electric" />
           <div>
-            <p className="font-ui text-xs font-bold">Raka Aditya</p>
+            <p className="font-ui text-xs font-bold">Gangga Swara</p>
             <p className="font-mono text-[0.65rem] text-slate-400">ADMIN UTAMA</p>
           </div>
         </div>

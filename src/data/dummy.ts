@@ -231,7 +231,7 @@ export const skills = [
 
 export const testimonials = [
   {
-    quote: 'Raka bukan sekadar developer. Dia memahami bahasa bisnis kami dan menerjemahkannya menjadi produk yang berjalan.',
+    quote: 'Gangga bukan sekadar developer. Dia memahami bahasa bisnis kami dan menerjemahkannya menjadi produk yang berjalan.',
     name: 'Sari Wulandari',
     role: 'CEO, PT Nusantara Digital Lab',
   },
