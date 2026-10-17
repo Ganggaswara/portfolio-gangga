@@ -6,10 +6,10 @@ import { projects, type ProjectCategory } from '../data/dummy';
 import { Reveal } from '../components/Reveal';
 import { Chip } from '../components/ui';
 
-const cats: Array<'All' | ProjectCategory> = ['All', 'Web', 'Mobile', 'AI', 'Design'];
+const cats: ProjectCategory[] = ['Web', 'AI'];
 
 export function ProjectsPage() {
-  const [cat, setCat] = useState<'All' | ProjectCategory>('All');
+  const [cat, setCat] = useState<ProjectCategory>('Web');
   const [q, setQ] = useState('');
   const [debounced, setDebounced] = useState('');
   const [page, setPage] = useState(1);
@@ -26,7 +26,7 @@ export function ProjectsPage() {
 
   const filtered = useMemo(() => {
     return projects.filter((p) => {
-      const okCat = cat === 'All' || p.category === cat;
+      const okCat = p.category === cat;
       const okQ =
         debounced.length < 3 ||
         p.title.toLowerCase().includes(debounced) ||
@@ -44,8 +44,13 @@ export function ProjectsPage() {
         <title>Karya, Gangga Swara</title>
         <meta name="description" content="Katalog proyek web, mobile, AI, dan desain oleh Gangga Swara." />
       </Helmet>
-      <p className="hud-label">Katalog / 01</p>
-      <h1 className="font-display mt-2 text-6xl text-white sm:text-7xl">SEMUA KARYA</h1>
+      <p className="hud-label">Projects</p>
+      <h1 className="font-display mt-2 max-w-[14ch] text-5xl leading-[0.95] text-white sm:text-6xl">
+        WORKS &{' '}
+        <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
+          CREATIVE EXPERIMENTS.
+        </span>
+      </h1>
       <p className="mt-3 max-w-[58ch] text-sm text-slate-400">
         Filter berdasarkan kategori atau cari kata kunci. Setiap kartu membuka studi kasus lengkap.
       </p>
