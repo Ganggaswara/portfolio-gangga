@@ -1,23 +1,25 @@
 import { Helmet } from 'react-helmet-async';
-import { education, experience } from '../data/dummy';
+import { useI18n, useContent } from '../i18n';
 import { Reveal } from '../components/Reveal';
 import { Card, Chip } from '../components/ui';
 
 export function ExperiencePage() {
+  const { t } = useI18n();
+  const { experience, education } = useContent();
   return (
     <div className="mx-auto w-full max-w-6xl px-5 pt-32 pb-20">
       <Helmet>
-        <title>Jejak Karier, Gangga Swara</title>
+        <title>{t.experiencePage.title}</title>
       </Helmet>
-      <p className="hud-label">Experience</p>
+      <p className="hud-label">{t.experiencePage.label}</p>
       <h1 className="font-display mt-2 max-w-[12ch] text-6xl leading-[0.95] text-white sm:text-7xl">
-        THINGS THAT{' '}
+        {t.experienceTimeline.heading1}{' '}
         <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
-          SHAPED ME.
+          {t.experienceTimeline.heading2}
         </span>
       </h1>
       <p className="mt-3 max-w-[58ch] text-sm leading-relaxed text-slate-400">
-        My professional journey across teams and products I helped ship.
+        {t.experiencePage.intro}
       </p>
 
       <div className="mx-auto mt-10 max-w-3xl">
@@ -52,7 +54,7 @@ export function ExperiencePage() {
 
         <Reveal delay={0.1}>
           <Card className="mt-8">
-            <p className="hud-label mb-4">Education</p>
+            <p className="hud-label mb-4">{t.experiencePage.educationLabel}</p>
             {education.map((d) => (
               <div key={d.institution} className="border-t border-white/10 py-4 first:border-0 first:pt-0">
                 <h3 className="font-ui font-bold text-white">{d.institution}</h3>

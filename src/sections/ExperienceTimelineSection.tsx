@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
-import { experience } from '../data/dummy';
+import { useI18n, useContent } from '../i18n';
 import { Reveal } from '../components/Reveal';
 import { Chip } from '../components/ui';
 
 export function ExperienceTimelineSection() {
+  const { t } = useI18n();
+  const { experience } = useContent();
   const items = experience.slice(0, 3);
   return (
     <section id="experience" className="mx-auto w-full max-w-6xl scroll-mt-28 px-5 py-10 sm:py-16">
-      <p className="hud-label">Experience</p>
+      <p className="hud-label">{t.experienceTimeline.label}</p>
       <h2 className="font-display mt-4 max-w-[12ch] text-5xl leading-[0.95] text-white sm:text-6xl">
-        THINGS THAT{' '}
+        {t.experienceTimeline.heading1}{' '}
         <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
-          SHAPED ME.
+          {t.experienceTimeline.heading2}
         </span>
       </h2>
       <div className="relative mt-10 ml-2 border-l-0">
@@ -38,7 +40,7 @@ export function ExperienceTimelineSection() {
         </div>
       </div>
       <Link to="/experience" className="btn-capsule btn-ghost mt-8 !px-6 !py-2.5 !text-[0.72rem]">
-        View all experience
+        {t.experienceTimeline.viewAll}
       </Link>
     </section>
   );

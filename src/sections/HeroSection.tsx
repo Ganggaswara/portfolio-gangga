@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform, useReducedMotion } from 'motion/r
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import ProfileCard from '../components/ProfileCard';
 import { profile } from '../data/dummy';
+import { useI18n } from '../i18n';
 import { Typewriter } from '../components/Typewriter';
 import { waLink } from '../lib/utils';
 import { Particles } from '../components/Particles';
@@ -12,12 +13,13 @@ const CODE_ICON = `data:image/svg+xml,${encodeURIComponent(
 )}`;
 
 export function HeroSection() {
+  const { t } = useI18n();
   const reduce = useReducedMotion();
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.3);
   const glowX = useTransform(mx, [0, 1], ['10%', '70%']);
   const glowY = useTransform(my, [0, 1], ['5%', '35%']);
-  const wa = waLink(profile.whatsapp, 'Halo Gangga, saya menemukan portofolio Anda dan ingin berdiskusi.');
+  const wa = waLink(profile.whatsapp, t.cta.waMessage);
 
   return (
     <section

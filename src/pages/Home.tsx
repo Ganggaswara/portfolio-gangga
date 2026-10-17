@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { profile } from '../data/dummy';
+import { useI18n } from '../i18n';
 import { HeroSection } from '../sections/HeroSection';
 import { ProfileSection } from '../sections/ProfileSection';
 import { FeaturedProjectsSection } from '../sections/FeaturedProjectsSection';
@@ -9,11 +10,12 @@ import { CTASection } from '../sections/CTASection';
 import { GlowDivider } from '../components/ui';
 
 export function Home() {
+  const { t } = useI18n();
   return (
     <>
       <Helmet>
-        <title>{`${profile.shortName}, Digital Architect and AI Creator`}</title>
-        <meta name="description" content={profile.bio.slice(0, 155)} />
+        <title>{t.home.title}</title>
+        <meta name="description" content={t.home.desc} />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

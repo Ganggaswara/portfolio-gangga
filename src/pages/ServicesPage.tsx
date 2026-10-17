@@ -1,35 +1,29 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, MessageCircle } from 'lucide-react';
-import { profile, services } from '../data/dummy';
+import { profile } from '../data/dummy';
+import { useI18n, useContent } from '../i18n';
 import { waLink } from '../lib/utils';
 import { Reveal } from '../components/Reveal';
 import { Card, Chip } from '../components/ui';
 import { ICONS } from '../sections/ServicesSection';
 
-const process = [
-  { step: '01', title: 'Diskusi', desc: 'Memahami kebutuhan, target, dan batasan proyek Anda.' },
-  { step: '02', title: 'Rancang', desc: 'Menyusun struktur, alur, dan tampilan sebelum masuk koding.' },
-  { step: '03', title: 'Bangun', desc: 'Implementasi bertahap dengan progres yang bisa dipantau.' },
-  { step: '04', title: 'Rilis', desc: 'Deploy, pengujian akhir, dan serah terima hasil.' },
-];
-
 export function ServicesPage() {
-  const wa = waLink(profile.whatsapp, 'Halo Gangga, saya ingin berdiskusi tentang layanan Anda.');
+  const { t } = useI18n();
+  const { services } = useContent();
+  const process = t.servicesPage.process;
+  const wa = waLink(profile.whatsapp, t.servicesPage.waMessage);
 
   return (
     <div className="mx-auto w-full max-w-6xl px-5 pt-32 pb-20">
       <Helmet>
-        <title>Layanan, Gangga Swara</title>
-        <meta
-          name="description"
-          content="Layanan web development, AI & machine learning, dan SEO optimization oleh Gangga Swara."
-        />
+        <title>{t.servicesPage.title}</title>
+        <meta name="description" content={t.servicesPage.desc} />
       </Helmet>
-      <p className="hud-label">Services</p>
-      <h1 className="font-display mt-2 text-6xl text-white sm:text-7xl">SERVICES</h1>
+      <p className="hud-label">{t.servicesPage.label}</p>
+      <h1 className="font-display mt-2 text-6xl text-white sm:text-7xl">{t.servicesPage.h1}</h1>
       <p className="mt-3 max-w-[58ch] text-sm leading-relaxed text-slate-400">
-        Layanan yang saya tawarkan untuk membangun dan mengoptimalkan produk digital Anda.
+        {t.servicesPage.intro}
       </p>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -62,7 +56,7 @@ export function ServicesPage() {
 
       <Reveal delay={0.1}>
         <Card className="mt-10">
-          <p className="hud-label mb-5">Alur kerja</p>
+          <p className="hud-label mb-5">{t.servicesPage.processLabel}</p>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p) => (
               <div key={p.step}>
@@ -77,17 +71,17 @@ export function ServicesPage() {
 
       <Reveal delay={0.15}>
         <div className="glass mt-10 flex flex-col items-center gap-4 p-8 text-center sm:p-10">
-          <h2 className="font-display text-4xl text-white sm:text-5xl">SIAP MULAI?</h2>
+          <h2 className="font-display text-4xl text-white sm:text-5xl">{t.servicesPage.ctaHeading}</h2>
           <p className="max-w-[50ch] text-sm leading-relaxed text-slate-400">
-            Ceritakan kebutuhan Anda, saya bantu petakan solusi dan langkah berikutnya.
+            {t.servicesPage.ctaDesc}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule btn-primary">
               <MessageCircle size={15} />
-              Diskusi via WhatsApp
+              {t.servicesPage.ctaWa}
             </a>
             <Link to="/projects" className="btn-capsule btn-ghost">
-              Lihat karya
+              {t.servicesPage.ctaWorks}
               <ArrowUpRight size={15} />
             </Link>
           </div>

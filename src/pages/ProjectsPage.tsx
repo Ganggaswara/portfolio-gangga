@@ -2,14 +2,17 @@ import { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Search } from 'lucide-react';
-import { projects, type ProjectCategory } from '../data/dummy';
+import type { ProjectCategory } from '../data/dummy';
+import { useI18n, useContent } from '../i18n';
 import { Reveal } from '../components/Reveal';
 import { Chip } from '../components/ui';
 
-const cats: ProjectCategory[] = ['Web', 'AI'];
+const cats: Array<'All' | ProjectCategory> = ['All', 'Web', 'AI'];
 
 export function ProjectsPage() {
-  const [cat, setCat] = useState<ProjectCategory>('Web');
+  const { t } = useI18n();
+  const { projects } = useContent();
+  const [cat, setCat] = useState<'All' | ProjectCategory>('All');
   const [q, setQ] = useState('');
   const [debounced, setDebounced] = useState('');
   const [page, setPage] = useState(1);
@@ -26,14 +29,14 @@ export function ProjectsPage() {
 
   const filtered = useMemo(() => {
     return projects.filter((p) => {
-      const okCat = p.category === cat;
+      const okCat = cat === 'All' || p.category === cat;
       const okQ =
         debounced.length < 3 ||
         p.title.toLowerCase().includes(debounced) ||
         p.shortDescription.toLowerCase().includes(debounced);
       return okCat && okQ;
     });
-  }, [cat, debounced]);
+  }, [projects, cat, debounced]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
   const pageItems = filtered.slice((page - 1) * perPage, page * perPage);
@@ -41,18 +44,18 @@ export function ProjectsPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-5 pt-32 pb-20">
       <Helmet>
-        <title>Karya, Gangga Swara</title>
-        <meta name="description" content="Katalog proyek web, mobile, AI, dan desain oleh Gangga Swara." />
+        <title>{t.projectsPage.title}</title>
+        <meta name="description" content={t.projectsPage.desc} />
       </Helmet>
-      <p className="hud-label">Projects</p>
+      <p className="hud-label">{t.projectsPage.label}</p>
       <h1 className="font-display mt-2 max-w-[14ch] text-5xl leading-[0.95] text-white sm:text-6xl">
-        WORKS &{' '}
+        {t.projectsPage.heading1}{' '}
         <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
-          CREATIVE EXPERIMENTS.
+          {t.projectsPage.heading2}
         </span>
       </h1>
       <p className="mt-3 max-w-[58ch] text-sm text-slate-400">
-        Filter berdasarkan kategori atau cari kata kunci. Setiap kartu membuka studi kasus lengkap.
+        {t.projectsPage.intro}
       </p>
 
       <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -70,7 +73,7 @@ export function ProjectsPage() {
                   : 'border-white/12 text-slate-400 hover:border-white/30 hover:text-white'
               }`}
             >
-              {c}
+              {c === 'All' ? t.projectsPage.catAll : c}
             </button>
           ))}
         </div>
@@ -79,7 +82,7 @@ export function ProjectsPage() {
           <input
             value={q}
             onChange={(e) => onSearch(e.target.value)}
-            placeholder="Cari proyek, min 3 huruf"
+            placeholder={t.projectsPage.search}
             className="w-full bg-transparent text-sm text-white outline-none placeholder:text-slate-500"
           />
         </label>
@@ -112,8 +115,8 @@ export function ProjectsPage() {
 
       {filtered.length === 0 && (
         <div className="glass mt-8 p-10 text-center">
-          <p className="font-ui font-bold text-white">Tidak ada hasil</p>
-          <p className="mt-1 text-sm text-slate-400">Coba kata kunci lain atau reset filter kategori.</p>
+          <p className="font-ui font-bold text-white">{t.projectsPage.emptyTitle}</p>
+          <p className="mt-1 text-sm text-slate-400">{t.projectsPage.emptyDesc}</p>
         </div>
       )}
 

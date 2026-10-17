@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { profile } from '../data/dummy';
+import { useI18n } from '../i18n';
 
 type PatternUnit = number | null;
 type PatternDef = { cells: PatternUnit[]; loop: number; scale: number; lit?: number };
@@ -57,6 +58,7 @@ const fmt = (ds: number) => (ds < 600 ? `${(ds / 10).toFixed(1)}s` : `${Math.flo
 interface LatticeProps {
   label?: string;
   doneLabel?: string;
+  progressWord?: string;
   status?: 'working' | 'done';
   pattern?: string;
   grid?: 3 | 4;
@@ -72,6 +74,7 @@ interface LatticeProps {
 function LatticeLoader({
   label = 'Loading',
   doneLabel = 'Loaded in',
+  progressWord = 'in progress',
   status = 'working',
   pattern = 'orbit',
   grid = 3,
@@ -90,7 +93,7 @@ function LatticeLoader({
   const cycle = Math.round(pat.loop * d);
 
   const timerRef = useRef<HTMLSpanElement>(null);
-  const [announce, setAnnounce] = useState(`${label}, in progress`);
+  const [announce, setAnnounce] = useState(`${label}, ${progressWord}`);
 
   const paint = (ds: number) => {
     if (timerRef.current) timerRef.current.textContent = fmt(ds);
@@ -105,8 +108,8 @@ function LatticeLoader({
   }, [status]);
 
   useEffect(() => {
-    setAnnounce(status === 'done' ? doneLabel : `${label}, in progress`);
-  }, [status, label, doneLabel]);
+    setAnnounce(status === 'done' ? doneLabel : `${label}, ${progressWord}`);
+  }, [status, label, doneLabel, progressWord]);
 
   return (
     <span
@@ -177,6 +180,7 @@ function LatticeLoader({
 }
 
 export function PageLoader() {
+  const { t } = useI18n();
   const [status, setStatus] = useState<'working' | 'done'>('working');
   const [hiding, setHiding] = useState(false);
   const [gone, setGone] = useState(false);
@@ -239,8 +243,9 @@ export function PageLoader() {
       <div className="grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="relative">
         <LatticeLoader
-          label="Loading"
-          doneLabel="Loaded in"
+          label={t.loader.loading}
+          doneLabel={t.loader.done}
+          progressWord={t.loader.progress}
           status={status}
           color="#fcf1d0"
           doneColor="#22c55e"

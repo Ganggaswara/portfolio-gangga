@@ -1,20 +1,22 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { projects } from '../data/dummy';
+import { useI18n, useContent } from '../i18n';
 import { Reveal } from '../components/Reveal';
 import { Chip } from '../components/ui';
 
 export function FeaturedProjectsSection() {
+  const { t } = useI18n();
+  const { projects } = useContent();
   const featured = projects.filter((p) => p.isFeatured).slice(0, 4);
 
   return (
     <section className="mx-auto w-full max-w-6xl px-5 py-20">
       <div className="mb-10 max-w-3xl">
-        <p className="hud-label">Projects</p>
+        <p className="hud-label">{t.projects.label}</p>
         <h2 className="font-display mt-4 max-w-[14ch] text-5xl leading-[0.95] text-white sm:text-6xl">
-          WORKS &{' '}
+          {t.projects.heading1}{' '}
           <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
-            CREATIVE EXPERIMENTS.
+            {t.projects.heading2}
           </span>
         </h2>
       </div>
@@ -71,7 +73,7 @@ export function FeaturedProjectsSection() {
                     ))}
                   </div>
                   <span className="inline-flex items-center gap-1.5 font-ui text-xs font-bold tracking-[0.16em] text-electric uppercase">
-                    Open case
+                    {t.projects.openCase}
                     <ArrowUpRight size={14} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </div>
@@ -86,7 +88,7 @@ export function FeaturedProjectsSection() {
           to="/projects"
           className="group inline-flex items-center gap-3 font-ui text-xs font-bold tracking-[0.18em] text-slate-300 uppercase transition-colors hover:text-white"
         >
-          Lihat Semua Karya
+          {t.projects.ctaAll}
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-electric/40 bg-electric/10 text-electric transition group-hover:border-electric group-hover:bg-electric group-hover:text-void">
             <ArrowRight size={15} className="transition group-hover:translate-x-0.5" />
           </span>

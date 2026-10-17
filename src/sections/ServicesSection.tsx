@@ -1,5 +1,5 @@
 import { BrainCircuit, Code2, Search } from 'lucide-react';
-import { services } from '../data/dummy';
+import { useI18n, useContent } from '../i18n';
 import { Reveal } from '../components/Reveal';
 import { Chip } from '../components/ui';
 
@@ -12,14 +12,16 @@ export const ICONS = {
 const SPANS = ['lg:col-span-7', 'lg:col-span-5', 'lg:col-span-12'];
 
 export function ServicesSection() {
+  const { t } = useI18n();
+  const { services } = useContent();
   return (
     <section id="services" className="mx-auto w-full max-w-6xl scroll-mt-28 px-5 py-20">
       <div className="mb-10 max-w-3xl">
-        <p className="hud-label">Services</p>
+        <p className="hud-label">{t.servicesSection.label}</p>
         <h2 className="font-display mt-4 max-w-[16ch] text-5xl leading-[0.95] text-white sm:text-6xl">
-          WHAT I CAN{' '}
+          {t.servicesSection.heading1}{' '}
           <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
-            DO FOR YOU.
+            {t.servicesSection.heading2}
           </span>
         </h2>
       </div>

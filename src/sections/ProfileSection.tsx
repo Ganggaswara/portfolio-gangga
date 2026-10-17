@@ -2,21 +2,20 @@ import { Suspense, lazy, useRef } from 'react';
 import { MapPin, GraduationCap } from 'lucide-react';
 import { useInView } from 'motion/react';
 import { profile } from '../data/dummy';
+import { useI18n } from '../i18n';
 import { BrandIcon } from '../components/BrandIcon';
 import { Reveal } from '../components/Reveal';
 
 const Lanyard = lazy(() => import('../components/Lanyard'));
 
-const [bioMain, bioExtra] = profile.bio.split('\n\n');
-
-const metaTiles = [
-  { icon: MapPin, label: 'Based In', value: profile.location },
-  { icon: GraduationCap, label: 'EDUCATION', value: 'Undiksha, Informatics' },
-];
-
 export function ProfileSection() {
+  const { t } = useI18n();
   const cardRef = useRef<HTMLDivElement>(null);
   const showLanyard = useInView(cardRef, { margin: '400px 0px 400px 0px', once: true });
+  const metaTiles = [
+    { icon: MapPin, label: t.about.basedIn, value: profile.location },
+    { icon: GraduationCap, label: t.about.educationLabel, value: t.about.eduValue },
+  ];
   return (
     <section id="about" className="relative mx-auto w-full max-w-6xl scroll-mt-28 px-5 py-20 sm:py-28">
       <div
@@ -31,12 +30,12 @@ export function ProfileSection() {
       <Reveal>
         <div className="relative">
           <p className="font-mono text-[0.68rem] tracking-[0.24em] text-electric uppercase">
-              About Me
+              {t.about.label}
           </p>
           <h2 className="font-display mt-3 max-w-[14ch] text-5xl leading-[0.95] text-white sm:text-6xl">
-            Hi everyone! I&apos;m{' '}
+            {t.about.hi}{' '}
             <span className="bg-gradient-to-r from-electric via-grape to-neon bg-clip-text text-transparent">
-              Gangga.
+              {t.about.name3d}
             </span>
           </h2>
         </div>
@@ -60,7 +59,7 @@ export function ProfileSection() {
                   fallback={
                     <div className="flex h-full items-center justify-center">
                       <p className="font-mono text-xs tracking-widest text-slate-500 uppercase">
-                        Loading ID card
+                        {t.about.loadingCard}
                       </p>
                     </div>
                   }
@@ -82,14 +81,14 @@ export function ProfileSection() {
               ) : (
                 <div className="flex h-full items-center justify-center">
                   <p className="font-mono text-xs tracking-widest text-slate-500 uppercase">
-                    Loading ID card
+                    {t.about.loadingCard}
                   </p>
                 </div>
               )}
             </div>
           </div>
           <p className="mt-3 text-center font-mono text-[0.62rem] tracking-[0.2em] text-slate-500 uppercase">
-            Drag to swing / Click to flip
+            {t.about.dragTip}
           </p>
         </Reveal>
 
@@ -101,10 +100,8 @@ export function ProfileSection() {
                 aria-hidden="true"
                 style={{ background: 'linear-gradient(90deg, transparent, rgba(0,229,255,0.7), transparent)' }}
               />
-              <p className="max-w-[62ch] text-[0.95rem] leading-relaxed text-slate-200">{bioMain}</p>
-              {bioExtra && (
-                <p className="mt-4 max-w-[62ch] text-[0.95rem] leading-relaxed text-slate-200">{bioExtra}</p>
-              )}
+              <p className="max-w-[62ch] text-[0.95rem] leading-relaxed text-slate-200">{t.about.bio1}</p>
+              <p className="mt-4 max-w-[62ch] text-[0.95rem] leading-relaxed text-slate-200">{t.about.bio2}</p>
             </div>
           </Reveal>
 
