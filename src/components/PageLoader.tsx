@@ -222,12 +222,11 @@ export function PageLoader() {
   }, []);
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.style.overflow = 'hidden';
+    document.documentElement.style.overflow = gone ? '' : 'hidden';
     return () => {
-      root.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
-  }, []);
+  }, [gone]);
 
   if (gone) return null;
 
