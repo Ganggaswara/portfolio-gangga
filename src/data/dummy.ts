@@ -1,5 +1,7 @@
 import pacemakerImg from '../assets/projects/pacemaker.jpg';
 import woodcraftImg from '../assets/projects/woodcraft.jpg';
+import csrLensImg from '../assets/projects/CsrLens.jpeg';
+import sintekImg from '../assets/projects/sintek.jpg';
 
 export const profile = {
   name: 'Gangga Swara',
@@ -78,36 +80,49 @@ export const projects: Project[] = [
     isFeatured: true,
   },
   {
-    title: 'Your Project Title 03',
-    slug: 'project-slot-03',
-    shortDescription: 'Ganti dengan deskripsi singkat project kamu di sini.',
+    title: 'SINTEKINDO',
+    slug: 'sintekindo-landing-page',
+    shortDescription: 'Landing page perusahaan teknologi dengan layanan, paket, dan portofolio live.',
     longDescription:
-      'Ganti dengan cerita lengkap project kamu: masalah, peran, proses, dan hasil. Slot 03 siap diisi.',
-    category: 'AI',
-    thumbnail: 'https://picsum.photos/seed/project-slot-3/800/560',
-    gallery: [
-      'https://picsum.photos/seed/project-slot-3a/1200/700',
-      'https://picsum.photos/seed/project-slot-3b/1200/700',
-    ],
-    techStack: ['Python', 'FastAPI', 'React'],
+      'Landing page untuk CV Sintekindo dengan hero Building the Future Through Technology, profil perusahaan, 3 layanan utama, estimasi paket Rp2jt/Rp5jt/Rp10jt, karya live, segmen klien, testimoni Google 5.0, dan form kontak WhatsApp.',
+    category: 'Web',
+    thumbnail: sintekImg,
+    gallery: [sintekImg],
+    techStack: ['React', 'Tailwind', 'Landing Page'],
     period: '2026',
-    role: 'Your Role',
+    role: 'Web Developer',
     demoUrl: '#',
     repoUrl: '#',
     isFeatured: true,
   },
   {
-    title: 'Your Project Title 04',
-    slug: 'project-slot-04',
-    shortDescription: 'Ganti dengan deskripsi singkat project kamu di sini.',
+    title: 'CSR Lens',
+    slug: 'csr-lens',
+    shortDescription: 'RAG tanya-jawab dokumen CSR 5 emiten kesehatan Indonesia dengan sitasi sumber.',
     longDescription:
-      'Ganti dengan cerita lengkap project kamu: masalah, peran, proses, dan hasil. Slot 04 siap diisi.',
-    category: 'Design',
-    thumbnail: 'https://picsum.photos/seed/project-slot-4/800/560',
-    gallery: ['https://picsum.photos/seed/project-slot-4a/1200/700'],
-    techStack: ['Figma', 'Tailwind', 'Motion'],
+      'CSR Lens adalah aplikasi RAG untuk tanya-jawab laporan keberlanjutan emiten farmasi/rumah sakit. Mengambil dokumen CSR dari 5 emiten kesehatan Indonesia, dengan filter emiten dan tahun laporan, jawaban berbasis konteks plus daftar sumber referensi AR/SR dan halaman. Contoh: program TJSL KAEF 2022 dan sertifikasi PROPER Emas SIDO.',
+    category: 'AI',
+    thumbnail: csrLensImg,
+    gallery: [csrLensImg],
+    techStack: ['Python', 'RAG', 'Vector Database', 'LLM'],
     period: '2026',
-    role: 'Your Role',
+    role: 'AI Developer',
+    demoUrl: '#',
+    repoUrl: '#',
+    isFeatured: true,
+  },
+  {
+    title: 'Trading Agent Solana',
+    slug: 'trading-agent-solana',
+    shortDescription: 'Dashboard trading agent SOL/IDR dengan indikator RSI, MACD, dan rekomendasi otomatis.',
+    longDescription:
+      'Trading Agent Solana adalah dashboard monitoring dan rekomendasi trading untuk pair SOL/IDR. Menampilkan candlestick chart 1 jam dengan SMA, indikator RSI dan MACD histogram, skor rekomendasi agent (beli/jual), riwayat transaksi, serta data OHLCV mentah dari Indodax.',
+    category: 'AI',
+    thumbnail: 'https://picsum.photos/seed/trading-agent-solana/800/560',
+    gallery: ['https://picsum.photos/seed/trading-agent-solana/1200/700'],
+    techStack: ['Python', 'Streamlit', 'Indodax API', 'Pandas'],
+    period: '2026',
+    role: 'Developer',
     demoUrl: '#',
     repoUrl: '#',
     isFeatured: true,
