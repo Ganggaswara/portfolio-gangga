@@ -12,6 +12,8 @@ export function Particles({ density = 60 }: { density?: number }) {
     if (!ctx) return;
 
     let raf = 0;
+    let running = false;
+    let onScreen = false;
     let w = 0;
     let h = 0;
     const dots = Array.from({ length: density }, () => ({
@@ -32,6 +34,7 @@ export function Particles({ density = 60 }: { density?: number }) {
     window.addEventListener('resize', resize);
 
     const frame = () => {
+      if (!running) return;
       ctx.clearRect(0, 0, w, h);
       for (const d of dots) {
         d.y -= d.s;
@@ -45,9 +48,32 @@ export function Particles({ density = 60 }: { density?: number }) {
       }
       raf = requestAnimationFrame(frame);
     };
-    raf = requestAnimationFrame(frame);
+
+    const sync = () => {
+      if (onScreen && !document.hidden) {
+        if (!running) {
+          running = true;
+          raf = requestAnimationFrame(frame);
+        }
+      } else {
+        running = false;
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      sync();
+    });
+    observer.observe(canvas);
+    document.addEventListener('visibilitychange', sync);
+
     return () => {
+      running = false;
       cancelAnimationFrame(raf);
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', sync);
       window.removeEventListener('resize', resize);
     };
   }, [density]);
