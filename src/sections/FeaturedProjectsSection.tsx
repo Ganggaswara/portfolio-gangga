@@ -81,9 +81,15 @@ export function FeaturedProjectsSection() {
         ))}
       </div>
 
-      <div className="mt-8 flex justify-center">
-        <Link to="/projects" className="btn-capsule btn-primary">
-          Lihat Semua Karya <ArrowRight size={15} />
+      <div className="mt-10 flex justify-center">
+        <Link
+          to="/projects"
+          className="group inline-flex items-center gap-3 font-ui text-xs font-bold tracking-[0.18em] text-slate-300 uppercase transition-colors hover:text-white"
+        >
+          Lihat Semua Karya
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-electric/40 bg-electric/10 text-electric transition group-hover:border-electric group-hover:bg-electric group-hover:text-void">
+            <ArrowRight size={15} className="transition group-hover:translate-x-0.5" />
+          </span>
         </Link>
       </div>
     </section>
