@@ -11,7 +11,7 @@ export const profile = {
   headline: 'AI-DRIVEN CREATIVE DEVELOPER',
   tagline: 'Saya merancang sistem yang terasa hidup.',
   bio: "I'm an Informatics student at Universitas Pendidikan Ganesha passionate about web development and machine learning. I enjoy coding, going to the gym, and continuously improving my skills by building functional, user-friendly, and visually appealing websites while exploring machine learning.",
-  whatsapp: '6281234567890',
+  whatsapp: '6287859988832',
   email: 'ganggaswara11@gmail.com',
   location: 'Bali, Indonesia',
   availability: 'Open for collaboration',

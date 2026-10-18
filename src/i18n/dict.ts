@@ -62,7 +62,8 @@ const id = {
     heading: 'PUNYA IDE? WUJUDKAN SEKARANG.',
     desc: 'Ceritakan kebutuhan Anda lewat WhatsApp kami',
     button: 'Chat WhatsApp',
-    waMessage: 'Halo Gangga, saya menemukan portofolio Anda dan tertarik untuk berdiskusi.',
+    waMessage:
+      'Halo, Gangga! 👋\n\nSaya mengunjungi website portfolio Anda dan tertarik untuk berdiskusi lebih lanjut mengenai peluang kerja sama. Apakah Anda sedang tersedia untuk berdiskusi?',
   },
   home: {
     title: 'Gangga, Arsitek Digital dan AI Creator',
@@ -198,7 +199,8 @@ const en: typeof id = {
     heading: 'GOT AN IDEA? MAKE IT REAL.',
     desc: 'Tell us what you need via our WhatsApp',
     button: 'Chat on WhatsApp',
-    waMessage: 'Hi Gangga, I found your portfolio and would like to discuss.',
+    waMessage:
+      "Hi, Gangga! 👋\n\nI visited your portfolio website and I'm interested in discussing further collaboration opportunities. Are you available to talk?",
   },
   home: {
     title: 'Gangga, Digital Architect and AI Creator',
