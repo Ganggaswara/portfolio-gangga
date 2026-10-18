@@ -116,7 +116,7 @@ export function HeroSection() {
                 miniAvatarUrl={profile.heroImage}
                   name=""
                   title=""
-                  handle="ganggaswara"
+                  handle="ganggaswaraa"
                 status={t.hero.openToWork}
                 contactText={t.hero.contact}
                 onContactClick={() => window.open(wa, '_blank')}
