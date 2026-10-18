@@ -95,7 +95,6 @@ const id = {
   experiencePage: {
     title: 'Jejak Karier, Gangga Swara',
     label: 'Pengalaman',
-    intro: 'Perjalanan profesional saya di berbagai tim dan produk yang saya bantu bangun.',
     educationLabel: 'Pendidikan',
   },
   servicesPage: {
@@ -232,7 +231,6 @@ const en: typeof id = {
   experiencePage: {
     title: 'Career Journey, Gangga Swara',
     label: 'Experience',
-    intro: 'My professional journey across teams and products I helped ship.',
     educationLabel: 'Education',
   },
   servicesPage: {

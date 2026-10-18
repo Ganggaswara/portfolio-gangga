@@ -18,9 +18,6 @@ export function ExperiencePage() {
           {t.experienceTimeline.heading2}
         </span>
       </h1>
-      <p className="mt-3 max-w-[58ch] text-sm leading-relaxed text-slate-400">
-        {t.experiencePage.intro}
-      </p>
 
       <div className="mx-auto mt-10 max-w-3xl">
         <div className="relative">
