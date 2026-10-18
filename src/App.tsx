@@ -36,6 +36,16 @@ function ScrollManager() {
   return null;
 }
 
+function GAPageview() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (pathname.startsWith('/admin')) return;
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    w.gtag?.('event', 'page_view', { page_path: pathname + hash });
+  }, [pathname, hash]);
+  return null;
+}
+
 export default function App() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -56,6 +66,7 @@ export default function App() {
     <>
       <PageLoader />
       <ScrollManager />
+      <GAPageview />
       <Suspense fallback={null}>
         <Routes>
           <Route element={<PublicLayout />}>
