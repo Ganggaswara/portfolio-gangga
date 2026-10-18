@@ -6,7 +6,6 @@ const id = {
     Experience: 'Pengalaman',
     Projects: 'Proyek',
     Services: 'Layanan',
-    Contact: 'Kontak',
     Blog: 'Blog',
   },
   layout: {
@@ -150,7 +149,6 @@ const en: typeof id = {
     Experience: 'Experience',
     Projects: 'Projects',
     Services: 'Services',
-    Contact: 'Contact',
     Blog: 'Blog',
   },
   layout: {

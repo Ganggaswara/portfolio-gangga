@@ -82,19 +82,14 @@ const links: Array<{ to: string; key: keyof Dict['nav'] }> = [
   { to: '/experience', key: 'Experience' },
   { to: '/projects', key: 'Projects' },
   { to: '/services', key: 'Services' },
-  { to: '/#cta', key: 'Contact' },
   { to: '/blog', key: 'Blog' },
 ];
 
-function routeKey(pathname: string, hash: string) {
+function routeKey(pathname: string) {
   if (pathname.startsWith('/projects')) return 'Projects';
   if (pathname.startsWith('/blog')) return 'Blog';
   if (pathname.startsWith('/experience')) return 'Experience';
   if (pathname.startsWith('/services')) return 'Services';
-  if (pathname === '/') {
-    if (hash === '#cta') return 'Contact';
-    return 'Home';
-  }
   return 'Home';
 }
 
@@ -102,7 +97,7 @@ export function PublicLayout() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const loc = useLocation();
-  const [active, setActive] = useState(() => routeKey(loc.pathname, loc.hash));
+  const [active, setActive] = useState(() => routeKey(loc.pathname));
   const [pill, setPill] = useState({ left: 0, width: 0 });
   const barRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
@@ -155,7 +150,7 @@ export function PublicLayout() {
   }, []);
 
   useEffect(() => {
-    const next = routeKey(loc.pathname, loc.hash);
+    const next = routeKey(loc.pathname);
     lockRef.current = Date.now() + 900;
     setActive((prev) => (prev === next ? prev : next));
   }, [loc.pathname, loc.hash]);
@@ -169,13 +164,10 @@ export function PublicLayout() {
         if (Date.now() < lockRef.current) return;
         const services = document.getElementById('services');
         const experience = document.getElementById('experience');
-        const cta = document.getElementById('cta');
         const mid = window.innerHeight * 0.5;
-        const ctaTop = cta?.getBoundingClientRect().top ?? Infinity;
         const servicesTop = services?.getBoundingClientRect().top ?? Infinity;
         const expTop = experience?.getBoundingClientRect().top ?? Infinity;
-        const next =
-          ctaTop < mid ? 'Contact' : servicesTop < mid ? 'Services' : expTop < mid ? 'Experience' : 'Home';
+        const next = servicesTop < mid ? 'Services' : expTop < mid ? 'Experience' : 'Home';
         setActive((prev) => (prev === next ? prev : next));
       });
     };
