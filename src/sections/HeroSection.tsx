@@ -1,6 +1,7 @@
 "use client";
 import { motion, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ProfileCard from '../components/ProfileCard';
 import { profile } from '../data/dummy';
 import { useI18n } from '../i18n';
@@ -91,10 +92,10 @@ export function HeroSection() {
               transition={{ duration: 0.7, delay: 0.26 }}
               className="order-4 mt-4 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center lg:mt-7"
             >
-              <a href="/projects" className="btn-capsule btn-primary justify-center">
+              <Link to="/projects" className="btn-capsule btn-primary justify-center">
                 {t.hero.viewProjects}
                 <ArrowDownRight size={15} />
-              </a>
+              </Link>
               <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule btn-ghost justify-center">
                 {t.hero.letsTalk}
                 <ArrowUpRight size={15} />
