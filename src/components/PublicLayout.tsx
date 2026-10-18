@@ -1,4 +1,5 @@
 import { ChevronDown, Globe, Rocket, Menu, X } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { profile } from '../data/dummy';
@@ -107,6 +108,26 @@ export function PublicLayout() {
   const tabRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const lockRef = useRef(0);
   const tickRef = useRef(0);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onDown = (e: PointerEvent) => {
+      const target = e.target as Node;
+      if (menuRef.current?.contains(target)) return;
+      if ((target as Element).closest?.('header')) return;
+      setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('pointerdown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
 
   const measure = () => {
     const el = tabRefs.current[active];
@@ -236,22 +257,79 @@ export function PublicLayout() {
       </header>
 
       {open && (
-        <div className="glass fixed inset-x-4 top-24 z-50 flex flex-col gap-2 p-4 !bg-navy md:hidden">
-          {links.map((l) => (
-            <Link
-              key={l.key}
-              to={l.to}
+        <motion.div
+          ref={menuRef}
+          initial={{ opacity: 0, y: -10, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+          className="glass fixed inset-x-4 top-24 z-50 origin-top !rounded-3xl !bg-navy p-3 md:hidden"
+        >
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-electric/60 to-transparent"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-16 right-0 h-36 w-36 rounded-full bg-grape/15 blur-3xl"
+          />
+          <nav className="relative flex flex-col gap-1">
+            {links.map((l, i) => {
+              const isActive = active === l.key;
+              return (
+                <Link
+                  key={l.key}
+                  to={l.to}
+                  onClick={() => {
+                    lockRef.current = Date.now() + 900;
+                    setActive(l.key);
+                    setOpen(false);
+                  }}
+                  className={`group flex items-center justify-between rounded-2xl px-4 py-3 transition-colors ${
+                    isActive ? 'bg-electric/10 text-electric' : 'text-slate-200 hover:bg-white/5 hover:text-white'
+                  }`}
+                >
+                  <span className="flex items-center gap-3 font-ui text-sm font-semibold tracking-wider">
+                    <span
+                      className={`font-mono text-[0.6rem] tracking-[0.2em] ${
+                        isActive ? 'text-electric' : 'text-slate-500 group-hover:text-electric/70'
+                      }`}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    {t.nav[l.key]}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className={`h-1.5 w-1.5 rotate-45 border transition-colors ${
+                      isActive
+                        ? 'border-electric bg-electric shadow-[0_0_10px_rgba(252,241,208,0.8)]'
+                        : 'border-white/20 group-hover:border-electric/60'
+                    }`}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="relative mt-2 flex flex-col gap-2 border-t border-white/10 pt-3">
+            <a
+              href="/CV-Gangga.pdf"
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setOpen(false)}
-              className="rounded-xl px-4 py-3 font-ui text-sm font-semibold tracking-wider text-white hover:bg-white/5"
+              className="btn-capsule btn-primary justify-center"
             >
-              {t.nav[l.key]}
-            </Link>
-          ))}
-          <div className="mt-1 flex items-center justify-between rounded-xl border-t border-white/10 px-4 pt-3">
-            <span className="font-ui text-sm font-semibold tracking-wider text-white">{t.layout.language}</span>
-            <LangToggle />
+              <Rocket size={14} />
+              {t.layout.viewCv}
+            </a>
+            <div className="flex items-center justify-between rounded-2xl bg-white/[0.03] px-4 py-2.5">
+              <span className="flex items-center gap-2 font-ui text-xs font-semibold tracking-wider text-slate-400">
+                <Globe size={13} className="text-electric" />
+                {t.layout.language}
+              </span>
+              <LangToggle />
+            </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       <main className="relative z-10">
