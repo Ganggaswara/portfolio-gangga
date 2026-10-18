@@ -107,9 +107,8 @@ const id = {
     title: 'Layanan, Gangga Swara',
     desc: 'Layanan web development, AI & machine learning, dan SEO optimization oleh Gangga Swara.',
     label: 'Layanan',
-    h1: 'LAYANAN',
+    h1: 'YANG KAMI TAWARKAN.',
     intro: 'Layanan yang saya tawarkan untuk membangun dan mengoptimalkan produk digital Anda.',
-    processLabel: 'Alur kerja',
     processIntro: 'Empat langkah kerja yang rapi dan transparan, dari obrolan awal sampai rilis.',
     process: [
       { step: '01', title: 'Diskusi', desc: 'Memahami kebutuhan, target, dan batasan proyek Anda.' },
@@ -120,7 +119,6 @@ const id = {
     ctaHeading: 'SIAP MULAI?',
     ctaDesc: 'Ceritakan kebutuhan Anda, saya bantu petakan solusi dan langkah berikutnya.',
     ctaWa: 'Diskusi via WhatsApp',
-    ctaWorks: 'Lihat karya',
     waMessage: 'Halo Gangga, saya ingin berdiskusi tentang layanan Anda.',
   },
   blog: {
@@ -250,9 +248,8 @@ const en: typeof id = {
     title: 'Services, Gangga Swara',
     desc: 'Web development, AI & machine learning, and SEO optimization services by Gangga Swara.',
     label: 'Services',
-    h1: 'SERVICES',
+    h1: 'WHAT WE OFFER.',
     intro: 'Services I offer to build and optimize your digital products.',
-    processLabel: 'How it works',
     processIntro: 'Four tidy and transparent work steps, from the first chat to release.',
     process: [
       { step: '01', title: 'Discuss', desc: 'Understanding your needs, goals, and project constraints.' },
@@ -263,7 +260,6 @@ const en: typeof id = {
     ctaHeading: 'READY TO START?',
     ctaDesc: 'Tell me what you need and I\u2019ll help map the solution and next steps.',
     ctaWa: 'Chat on WhatsApp',
-    ctaWorks: 'View works',
     waMessage: 'Hi Gangga, I\u2019d like to discuss your services.',
   },
   blog: {

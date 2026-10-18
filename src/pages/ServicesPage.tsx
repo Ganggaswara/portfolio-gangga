@@ -1,17 +1,16 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { profile } from '../data/dummy';
 import { useI18n, useContent } from '../i18n';
 import { waLink } from '../lib/utils';
 import { Reveal } from '../components/Reveal';
 import { Card, Chip } from '../components/ui';
 import { ICONS } from '../sections/ServicesSection';
+import { ProcessSection } from '../sections/ProcessSection';
 
 export function ServicesPage() {
   const { t } = useI18n();
   const { services } = useContent();
-  const process = t.servicesPage.process;
   const wa = waLink(profile.whatsapp, t.servicesPage.waMessage);
 
   return (
@@ -21,7 +20,7 @@ export function ServicesPage() {
         <meta name="description" content={t.servicesPage.desc} />
       </Helmet>
       <p className="hud-label">{t.servicesPage.label}</p>
-      <h1 className="font-display mt-2 text-6xl text-white sm:text-7xl">{t.servicesPage.h1}</h1>
+      <h1 className="font-display mt-2 max-w-[18ch] text-5xl leading-[0.95] text-white sm:text-7xl">{t.servicesPage.h1}</h1>
       <p className="mt-3 max-w-[58ch] text-sm leading-relaxed text-slate-400">
         {t.servicesPage.intro}
       </p>
@@ -55,36 +54,19 @@ export function ServicesPage() {
       </div>
 
       <Reveal delay={0.1}>
-        <Card className="mt-10">
-          <p className="hud-label mb-5">{t.servicesPage.processLabel}</p>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {process.map((p) => (
-              <div key={p.step}>
-                <span className="font-mono text-xs tracking-[0.2em] text-electric">{p.step}</span>
-                <h3 className="font-ui mt-2 text-sm font-bold text-white">{p.title}</h3>
-                <p className="mt-1 text-[0.8rem] leading-relaxed text-slate-400">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Card>
+        <ProcessSection />
       </Reveal>
 
       <Reveal delay={0.15}>
-        <div className="glass mt-10 flex flex-col items-center gap-4 p-8 text-center sm:p-10">
+        <div className="glass mt-4 flex flex-col items-center gap-4 p-8 text-center sm:p-10">
           <h2 className="font-display text-4xl text-white sm:text-5xl">{t.servicesPage.ctaHeading}</h2>
           <p className="max-w-[50ch] text-sm leading-relaxed text-slate-400">
             {t.servicesPage.ctaDesc}
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule btn-primary">
-              <MessageCircle size={15} />
-              {t.servicesPage.ctaWa}
-            </a>
-            <Link to="/projects" className="btn-capsule btn-ghost">
-              {t.servicesPage.ctaWorks}
-              <ArrowUpRight size={15} />
-            </Link>
-          </div>
+          <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule btn-primary mt-2">
+            <MessageCircle size={15} />
+            {t.servicesPage.ctaWa}
+          </a>
         </div>
       </Reveal>
     </div>
