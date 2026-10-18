@@ -215,7 +215,12 @@ export function PublicLayout() {
           </div>
           <div className="hidden items-center gap-2 md:flex">
             <LangToggle />
-            <a href="/#cta" className="btn-capsule btn-primary !px-5 !py-2 !text-[0.7rem]">
+            <a
+              href="/CV-Gangga.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-capsule btn-primary !px-5 !py-2 !text-[0.7rem]"
+            >
               <Rocket size={14} />
               {t.layout.viewCv}
             </a>
