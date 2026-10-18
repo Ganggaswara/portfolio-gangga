@@ -103,6 +103,10 @@ body {
   box-shadow: 0 0 24px rgba(252, 241, 208, 0.35), inset 0 0 18px rgba(252, 241, 208, 0.12);
 }
 .btn-capsule:active { transform: translateY(1px) scale(0.98); }
+.btn-capsule svg { flex: none; }
+@media (max-width: 640px) {
+  .btn-capsule { padding: 0.7rem 0.9rem; gap: 0.4rem; font-size: 0.72rem; letter-spacing: 0.06em; }
+}
 .btn-primary {
   background: linear-gradient(135deg, rgba(252, 241, 208, 0.14), rgba(34, 57, 111, 0.55));
   color: #fff;
