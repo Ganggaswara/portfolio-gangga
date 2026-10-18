@@ -60,7 +60,7 @@ export function HeroSection() {
                 <span className="h-2 w-2 rounded-full bg-success" />
               </span>
               <span className="font-mono text-[0.65rem] tracking-[0.18em] text-electric uppercase">
-                Open for work
+                {t.hero.openToWork}
               </span>
             </motion.div>
 
@@ -92,11 +92,11 @@ export function HeroSection() {
               className="order-4 mt-4 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center lg:mt-7"
             >
               <a href="/projects" className="btn-capsule btn-primary justify-center">
-                View Projects
+                {t.hero.viewProjects}
                 <ArrowDownRight size={15} />
               </a>
               <a href={wa} target="_blank" rel="noreferrer" className="btn-capsule btn-ghost justify-center">
-                Let's Talk
+                {t.hero.letsTalk}
                 <ArrowUpRight size={15} />
               </a>
             </motion.div>
@@ -116,14 +116,14 @@ export function HeroSection() {
                   name=""
                   title=""
                   handle="ganggaswara"
-                status="Open for work"
-                contactText="Contact"
+                status={t.hero.openToWork}
+                contactText={t.hero.contact}
                 onContactClick={() => window.open(wa, '_blank')}
               />
             </div>
 
             <p className="mt-1 text-center font-mono text-[0.62rem] tracking-[0.2em] text-slate-500 uppercase lg:mt-2">
-              Hover to tilt
+              {t.hero.tiltHint}
             </p>
             <p className="mt-1.5 text-center font-ui text-xs font-bold text-white lg:mt-3">
               {profile.shortName}

@@ -65,6 +65,13 @@ const id = {
     waMessage:
       'Halo, Gangga! 👋\n\nSaya mengunjungi website portfolio Anda dan tertarik untuk berdiskusi lebih lanjut mengenai peluang kerja sama. Apakah Anda sedang tersedia untuk berdiskusi?',
   },
+  hero: {
+    openToWork: 'Terbuka untuk kerja',
+    contact: 'Kontak',
+    viewProjects: 'Lihat Proyek',
+    letsTalk: 'Mari Diskusi',
+    tiltHint: 'Arahkan kursor untuk memiringkan',
+  },
   home: {
     title: 'Gangga, Arsitek Digital dan AI Creator',
     desc: 'Portofolio Gangga Swara, web developer dan AI/machine learning enthusiast.',
@@ -118,6 +125,7 @@ const id = {
     waMessage: 'Halo Gangga, saya ingin berdiskusi tentang layanan Anda.',
   },
   blog: {
+    title: 'Blog, Gangga Swara',
     desc: 'Catatan segera hadir.',
     back: 'Kembali ke Home',
   },
@@ -201,6 +209,13 @@ const en: typeof id = {
     waMessage:
       "Hi, Gangga! 👋\n\nI visited your portfolio website and I'm interested in discussing further collaboration opportunities. Are you available to talk?",
   },
+  hero: {
+    openToWork: 'Open for work',
+    contact: 'Contact',
+    viewProjects: 'View Projects',
+    letsTalk: "Let's Talk",
+    tiltHint: 'Hover to tilt',
+  },
   home: {
     title: 'Gangga, Digital Architect and AI Creator',
     desc: 'Gangga Swara\u2019s portfolio, a web developer and AI/machine learning enthusiast.',
@@ -254,6 +269,7 @@ const en: typeof id = {
     waMessage: 'Hi Gangga, I\u2019d like to discuss your services.',
   },
   blog: {
+    title: 'Blog, Gangga Swara',
     desc: 'Notes coming soon.',
     back: 'Back to Home',
   },
