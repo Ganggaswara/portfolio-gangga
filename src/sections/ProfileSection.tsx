@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useRef, useState } from 'react';
+import { Suspense, lazy, useRef } from 'react';
 import { MapPin, GraduationCap } from 'lucide-react';
 import { useInView } from 'motion/react';
 import { profile } from '../data/dummy';
@@ -11,28 +11,7 @@ const Lanyard = lazy(() => import('../components/Lanyard'));
 export function ProfileSection() {
   const { t } = useI18n();
   const cardRef = useRef<HTMLDivElement>(null);
-  const nearCard = useInView(cardRef, { margin: '200px 0px 200px 0px', once: true });
-  const [idleReady, setIdleReady] = useState(false);
-  const showLanyard = nearCard || idleReady;
-
-  useEffect(() => {
-    let idleId: number | null = null;
-    let timeoutId: number | null = null;
-    const arm = () => {
-      if (typeof window.requestIdleCallback === 'function') {
-        idleId = window.requestIdleCallback(() => setIdleReady(true), { timeout: 2500 });
-      } else {
-        timeoutId = window.setTimeout(() => setIdleReady(true), 1500);
-      }
-    };
-    if (document.readyState === 'complete') arm();
-    else window.addEventListener('load', arm, { once: true });
-    return () => {
-      window.removeEventListener('load', arm);
-      if (idleId !== null) window.cancelIdleCallback(idleId);
-      if (timeoutId !== null) window.clearTimeout(timeoutId);
-    };
-  }, []);
+  const showLanyard = useInView(cardRef, { margin: '0px', once: true });
   const metaTiles = [
     { icon: MapPin, label: t.about.basedIn, value: profile.location },
     { icon: GraduationCap, label: t.about.educationLabel, value: t.about.eduValue },
