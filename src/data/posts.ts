@@ -1,6 +1,6 @@
 import type { Lang } from '../i18n/dict';
 import blog1Image from '../assets/blog/blog1.webp';
-import routerCover from '../assets/blog/9router-cover.svg';
+import routerCover from '../assets/blog/9router-hero.webp';
 
 export type Cover = 'aurora' | 'grid' | 'beam';
 
