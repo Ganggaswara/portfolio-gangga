@@ -1,5 +1,6 @@
 import type { Lang } from '../i18n/dict';
 import blog1Image from '../assets/blog/blog1.webp';
+import routerCover from '../assets/blog/9router-cover.svg';
 
 export type Cover = 'aurora' | 'grid' | 'beam';
 
@@ -45,6 +46,42 @@ const posts: RawPost[] = [
         'The discussion was lively. We started talking about who the target audience was, which services we wanted to introduce, and how to deliver that information so prospective customers could easily understand it. Several ideas came up during the discussion; some fit right away, others still needed consideration. Once we found a concept that felt right, we began dividing the work so it could be finished together.',
         'From this simple activity, I started to get a picture of how work in a company environment actually runs. It turns out that creating content is not just about finding an idea and executing it right away. There are many things that need to be discussed first so the result matches the intended goal.',
         'Towards the end of the week, our first piece of content was finally finished and had the chance to be reviewed by the mentor. Some parts still needed improvement, of course. But from that process I learned that revision is a normal part of any work. It is precisely from the feedback given that we can see what is still lacking and how to make the next result better.',
+      ],
+    },
+  },
+  {
+    slug: 'mengenal-9router-satu-endpoint-banyak-model',
+    date: '2026-11-06',
+    tags: ['AI', 'Tooling'],
+    readMinutes: 6,
+    cover: 'grid',
+    image: routerCover,
+    title: {
+      id: 'Mengenal 9Router: Satu Endpoint untuk Banyak Model AI',
+      en: 'Getting to Know 9Router: One Endpoint for Many AI Models',
+    },
+    excerpt: {
+      id: 'Penjelasan singkat soal 9Router, lapisan yang menyatukan banyak model AI di balik satu API yang kompatibel dengan OpenAI.',
+      en: 'A short explainer on 9Router, the layer that unifies many AI models behind a single OpenAI-compatible API.',
+    },
+    body: {
+      id: [
+        'Waktu mulai memakai lebih dari satu model AI, masalahnya bukan lagi soal kualitas jawaban. Masalahnya pindah ke hal yang jauh lebih membosankan: setiap penyedia punya base URL, format API, kunci, kuota, dan kebiasaan error yang berbeda. Setiap kali ingin mencoba model lain, saya harus mengubah konfigurasi aplikasi dan menyesuaikan kode yang memanggilnya.',
+        '9Router hadir untuk memotong pekerjaan itu. Ia adalah lapisan perantara yang menerima permintaan dalam format API yang kompatibel dengan OpenAI, lalu meneruskannya ke model mana pun yang sudah didaftarkan di dalamnya. Aplikasi tetap berbicara ke satu alamat, sementara di belakangnya bisa ada beberapa penyedia sekaligus.',
+        'Cara kerjanya sederhana kalau dibayangkan. Sisi klien mengirim permintaan ke satu base URL. 9Router membaca nama model yang diminta, memilih rute yang cocok, lalu mengembalikan jawaban dengan bentuk yang sama seperti yang dikirim penyedia aslinya. Karena formatnya kompatibel dengan OpenAI, hampir semua library dan editor yang sudah ada bisa langsung dipakai tanpa perubahan berarti.',
+        'Yang membuatnya berguna sehari-hari adalah kemungkinan mengatur beberapa penyedia di satu tempat. Model yang berbeda bisa diarahkan ke server lokal, ke penyedia berlangganan, atau ke endpoint bersama di jaringan kantor. Ketika satu penyedia sedang lambat atau kena limit, rute bisa dipindah tanpa menyentuh kode aplikasi.',
+        'Diagram di atas menunjukkan alurnya: klien di sisi kiri, 9Router di tengah, dan beberapa model di sisi kanan. Semua kabel yang tadinya harus dipasang satu per satu di dalam aplikasi kini berkumpul di satu titik. Dari sudut pandang kode, hanya ada satu endpoint yang perlu diingat.',
+        'Catatan pentingnya, 9Router bukan model dan bukan penyedia. Ia tidak menambah kecerdasan apa pun, tidak menyimpan riwayat panjang, dan tidak menggantikan kualitas model di belakangnya. Ia hanya merapikan jalan menuju model tersebut. Kalau butuh hasil yang lebih baik, yang harus diganti tetap modelnya, bukan routernya.',
+        'Bagi saya nilainya ada di sisi operasional. Konfigurasi jadi satu file, percobaan model baru tidak lagi berisiko merusak aplikasi, dan tim bisa memakai endpoint yang sama dengan kunci yang sama. Untuk proyek kecil pun, penghematan waktu dari hal-hal seperti ini terasa lebih nyata daripada menambah satu model lagi ke daftar.',
+      ],
+      en: [
+        'Once you start using more than one AI model, the problem stops being answer quality. It moves to something far more boring: every provider has its own base URL, API shape, key, quota, and error habits. Every time I wanted to try another model, I had to change the app configuration and adjust the calling code.',
+        '9Router exists to cut that work out. It is an intermediary layer that accepts requests in the OpenAI-compatible API format, then forwards them to whichever model is registered inside it. The app keeps talking to a single address, while several providers can sit behind it.',
+        'The mechanics are easy to picture. The client sends a request to one base URL. 9Router reads the requested model name, picks the matching route, and returns the answer in the same shape the original provider sent. Because the format is OpenAI-compatible, almost every existing library and editor works without meaningful changes.',
+        'What makes it useful day to day is the ability to configure several providers in one place. Different models can point at a local server, a subscription provider, or a shared endpoint on the office network. When one provider gets slow or rate limited, the route can be moved without touching application code.',
+        'The diagram above shows the flow: clients on the left, 9Router in the middle, and several models on the right. All the cables that used to be wired one by one inside the app now gather at a single point. From the code perspective, there is only one endpoint to remember.',
+        'The important caveat: 9Router is not a model and not a provider. It adds no intelligence, keeps no long history, and does not replace the quality of the model behind it. It only tidies the road to that model. If you need better results, the thing to swap is still the model, not the router.',
+        'For me the value sits on the operational side. Configuration becomes one file, trying a new model no longer risks breaking the app, and a team can share the same endpoint with the same key. Even on a small project, the time saved by things like this feels more real than adding one more model to the list.',
       ],
     },
   },
