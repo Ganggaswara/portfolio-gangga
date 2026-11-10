@@ -1,5 +1,6 @@
 import type { Lang } from '../i18n/dict';
 import blog1Image from '../assets/blog/blog1.webp';
+import blog2Image from '../assets/blog/blog2.webp';
 import routerCover from '../assets/blog/9router-hero.webp';
 
 export type Cover = 'aurora' | 'grid' | 'beam';
@@ -17,6 +18,42 @@ interface RawPost {
 }
 
 const posts: RawPost[] = [
+  {
+    slug: 'kunjungan-pembimbing-magang-kampus',
+    date: '2026-11-10',
+    tags: ['Magang', 'Kampus'],
+    readMinutes: 6,
+    cover: 'aurora',
+    image: blog2Image,
+    title: {
+      id: 'Kunjungan Pembimbing Magang Kampus ke CV Sinar Teknologi',
+      en: 'Campus Internship Supervisor Visits CV Sinar Teknologi',
+    },
+    excerpt: {
+      id: 'Momen pembimbing magang dari kampus datang langsung ke tempat magang untuk melihat bagaimana kami bekerja.',
+      en: 'The moment our campus internship supervisor came to the workplace to see how we were working.',
+    },
+    body: {
+      id: [
+        'Beberapa waktu setelah kami mulai magang, pembimbing magang dari kampus datang berkunjung ke CV Sinar Teknologi. Kunjungan ini bukan sekadar formalitas, melainkan bagian dari tanggung jawab kampus untuk memastikan mahasiswa benar-benar mendapatkan pengalaman kerja yang sesuai dengan bidang studi.',
+        'Pada foto di atas, terlihat momen saat pembimbing magang berbincang dengan kami di tempat kerja. Suasananya santai, tetapi isinya cukup padat. Kami diminta menceritakan apa saja yang sudah dikerjakan, kendala apa yang dihadapi, dan bagaimana kami beradaptasi dengan ritme kerja perusahaan.',
+        'Kami menjelaskan bahwa pekerjaan kami berfokus pada pembuatan konten promosi, mulai dari menyusun konsep, menulis naskah, sampai mengambil dan mengolah materi visual. Pembimbing tampak tertarik pada prosesnya, terutama bagaimana kami menerjemahkan kebutuhan perusahaan menjadi konten yang bisa dipahami calon pelanggan.',
+        'Selain berbincang dengan kami, pembimbing juga berdiskusi dengan mentor di tempat magang. Keduanya bertukar pandangan mengenai progres kami, hal-hal yang sudah berkembang, serta aspek yang masih perlu dilatih. Bagi saya, momen ini menunjukkan bahwa kampus dan perusahaan memang berusaha berjalan searah dalam proses pembelajaran.',
+        'Ada cukup banyak masukan yang kami terima, mulai dari hal teknis seperti cara memilih sudut pengambilan gambar, sampai hal yang lebih mendasar seperti menjaga konsistensi dan ketelitian dalam setiap pekerjaan. Masukan itu tidak terasa seperti penilaian yang menegangkan, justru lebih seperti arahan dari orang yang sudah lebih dulu berpengalaman.',
+        'Setelah kunjungan, kami mencatat poin-poin pentingnya dan menjadikannya acuan untuk minggu-minggu berikutnya. Kami mulai lebih memperhatikan detail kecil yang sebelumnya terlewat, dan mencoba menerapkan saran yang diberikan secara perlahan tetapi konsisten.',
+        'Kesimpulannya, kunjungan pembimbing magang ini memberi dua hal sekaligus: pengawasan yang memastikan kami berada di jalur yang benar, dan motivasi karena pekerjaan kami diperhatikan secara langsung. Bagi saya pribadi, ini menjadi pengingat bahwa magang bukan hanya soal menyelesaikan tugas, tetapi juga soal membangun cara kerja yang lebih tertib dari waktu ke waktu.',
+      ],
+      en: [
+        'Some time after we started the internship, our campus internship supervisor came to visit CV Sinar Teknologi. The visit was not just a formality; it is part of the campus responsibility to make sure students genuinely gain work experience that matches their field of study.',
+        'The photo above captures the moment our supervisor chatted with us at the workplace. The atmosphere was relaxed, but what was covered had real weight. We were asked to describe what we had worked on, what obstacles we faced, and how we were adapting to the company\u2019s working rhythm.',
+        'We explained that our work focused on producing promotional content, from drafting concepts and writing scripts to shooting and editing visual material. The supervisor seemed genuinely interested in the process, especially how we translated the company\u2019s needs into content that prospective customers could understand.',
+        'Besides talking with us, the supervisor also spoke with the on-site mentor. The two exchanged views on our progress, the things we had developed, and the aspects that still needed training. For me, this moment showed that the campus and the company are genuinely trying to move in the same direction in the learning process.',
+        'We received a fair amount of feedback, from technical matters like choosing camera angles to more fundamental points like maintaining consistency and care in every piece of work. The feedback did not feel like an intimidating assessment; it felt more like guidance from someone with more experience.',
+        'After the visit, we noted the key points and used them as a reference for the following weeks. We started paying closer attention to the small details we had previously missed, and tried to apply the suggestions slowly but consistently.',
+        'In short, this visit gave us two things at once: oversight that made sure we were on the right track, and motivation from knowing our work was being watched closely. For me personally, it was a reminder that an internship is not only about finishing tasks, but also about building a more disciplined way of working over time.',
+      ],
+    },
+  },
   {
     slug: 'bulan-pertama-magang-sinar-teknologi',
     date: '2026-11-09',
