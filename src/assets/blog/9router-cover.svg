@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Diagram 9Router: satu endpoint OpenAI-compatible yang meneruskan permintaan ke beberapa model">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#010736"/>
+      <stop offset="0.55" stop-color="#0d1c42"/>
+      <stop offset="1" stop-color="#010736"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0" stop-color="#fcf1d0" stop-opacity="0.20"/>
+      <stop offset="0.6" stop-color="#5c78c4" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#010736" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wire" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fcf1d0" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#fcf1d0" stop-opacity="0.75"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#fcf1d0" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <rect width="1200" height="675" fill="url(#glow)"/>
+
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" fill="#fcf1d0">
+    <text x="64" y="76" font-size="15" letter-spacing="6" opacity="0.55">01 / GATEWAY</text>
+    <text x="64" y="620" font-size="13" letter-spacing="4" opacity="0.4">ONE ENDPOINT / MANY MODELS</text>
+  </g>
+
+  <g stroke="url(#wire)" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M300 250 C400 250 420 337 500 337"/>
+    <path d="M300 337 L500 337"/>
+    <path d="M300 424 C400 424 420 337 500 337"/>
+    <path d="M700 337 C780 337 800 250 900 250"/>
+    <path d="M700 337 L900 337"/>
+    <path d="M700 337 C780 337 800 424 900 424"/>
+  </g>
+
+  <g fill="#fcf1d0" opacity="0.85">
+    <circle cx="400" cy="293" r="3"/>
+    <circle cx="400" cy="380" r="3"/>
+    <circle cx="800" cy="293" r="3"/>
+    <circle cx="800" cy="380" r="3"/>
+  </g>
+
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="14" letter-spacing="2" fill="#c9d3e8">
+    <g>
+      <rect x="120" y="228" width="180" height="46" rx="23" fill="#0d1c42" stroke="#fcf1d0" stroke-opacity="0.25"/>
+      <text x="210" y="256" text-anchor="middle" fill="#e8eefb">EDITOR</text>
+      <rect x="120" y="314" width="180" height="46" rx="23" fill="#0d1c42" stroke="#fcf1d0" stroke-opacity="0.25"/>
+      <text x="210" y="342" text-anchor="middle" fill="#e8eefb">CLI</text>
+      <rect x="120" y="401" width="180" height="46" rx="23" fill="#0d1c42" stroke="#fcf1d0" stroke-opacity="0.25"/>
+      <text x="210" y="429" text-anchor="middle" fill="#e8eefb">APP</text>
+    </g>
+    <g>
+      <rect x="900" y="228" width="180" height="46" rx="23" fill="#0d1c42" stroke="#fcf1d0" stroke-opacity="0.25"/>
+      <text x="990" y="256" text-anchor="middle" fill="#e8eefb">MODEL A</text>
+      <rect x="900" y="314" width="180" height="46" rx="23" fill="#0d1c42" stroke="#fcf1d0" stroke-opacity="0.25"/>
+      <text x="990" y="342" text-anchor="middle" fill="#e8eefb">MODEL B</text>
+      <rect x="900" y="401" width="180" height="46" rx="23" fill="#0d1c42" stroke="#fcf1d0" stroke-opacity="0.25"/>
+      <text x="990" y="429" text-anchor="middle" fill="#e8eefb">LOCAL GPU</text>
+    </g>
+  </g>
+
+  <g>
+    <rect x="500" y="287" width="200" height="100" rx="22" fill="#22396f" stroke="#fcf1d0" stroke-opacity="0.55"/>
+    <rect x="512" y="299" width="176" height="76" rx="16" fill="none" stroke="#fcf1d0" stroke-opacity="0.18"/>
+    <text x="600" y="330" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="26" letter-spacing="5" fill="#fcf1d0">9ROUTER</text>
+    <text x="600" y="356" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="2.4" fill="#9fb4dc">OPENAI-COMPATIBLE</text>
+  </g>
+
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" fill="#9fb4dc" font-size="12" letter-spacing="1.6">
+    <text x="330" y="200" text-anchor="middle">request</text>
+    <text x="870" y="200" text-anchor="middle">routing</text>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1199" height="674" fill="none" stroke="#fcf1d0" stroke-opacity="0.12"/>
+</svg>
