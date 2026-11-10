@@ -90,6 +90,20 @@ export function BlogPage() {
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors hover:border-electric/40"
             >
               <div className={`${coverClass(post.cover)} aspect-[16/9]`}>
+                {post.image ? (
+                  <>
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      loading="lazy"
+                      className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <span
+                      className="absolute inset-0 z-[2] bg-gradient-to-t from-void/80 via-void/10 to-void/40"
+                      aria-hidden="true"
+                    />
+                  </>
+                ) : null}
                 <span className="absolute top-4 left-4 z-10 font-mono text-[0.6rem] tracking-[0.22em] text-white/70 uppercase">
                   {String(i + 2).padStart(2, '0')}
                 </span>

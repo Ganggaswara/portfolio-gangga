@@ -100,7 +100,11 @@ export function BlogPostPage() {
                 to={`/blog/${o.slug}`}
                 className="group flex gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4 transition-colors hover:border-electric/40"
               >
-                <div className={`${coverClass(o.cover)} h-20 w-20 shrink-0 rounded-xl`} />
+                <div className={`${coverClass(o.cover)} h-20 w-20 shrink-0 overflow-hidden rounded-xl`}>
+                  {o.image ? (
+                    <img src={o.image} alt={o.title} loading="lazy" className="h-full w-full object-cover" />
+                  ) : null}
+                </div>
                 <div className="min-w-0">
                   <p className="font-mono text-[0.6rem] tracking-[0.16em] text-slate-500 uppercase">
                     {fmtDate(o.date, lang)}
