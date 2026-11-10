@@ -64,14 +64,14 @@ const posts: RawPost[] = [
     },
     body: {
       id: [
-        'Portfolio yang baik bukan sekadar daftar proyek. Ia adalah produk pertama yang orang coba sebelum mereka memutuskan untuk menghubungi. Artinya, setiap detail — kecepatan muat, ritme animasi, cara halaman merespons sentuhan — ikut berbicara tentang cara saya bekerja.',
+        'Portfolio yang baik bukan sekadar daftar proyek. Ia adalah produk pertama yang orang coba sebelum mereka memutuskan untuk menghubungi. Artinya, setiap detail ikut berbicara tentang cara saya bekerja: kecepatan muat, ritme animasi, cara halaman merespons sentuhan.',
         'Karena itu saya memperlakukan motion sebagai bagian dari informasi, bukan hiasan. Transisi yang halus menunjukkan hierarki; jeda yang tepat memberi waktu membaca; gerakan kecil menandakan sesuatu bisa diklik. Semua itu harus punya alasan, kalau tidak, ia hanya menambah beban kognitif.',
         'Performa adalah batasan yang menyertainya. Animasi yang indah tidak ada artinya kalau halaman butuh lima detik untuk muncul di ponsel kelas menengah. Saya mulai dari yang paling murah: animasi CSS, transform dan opacity, lalu JS hanya ketika memang dibutuhkan. Efek berat seperti 3D saya muat setelah konten utama siap.',
         'Keputusan yang paling sering saya ulang adalah memotong. Setiap section harus menjawab satu pertanyaan pengunjung: siapa kamu, apa yang kamu kerjakan, dan bagaimana cara menghubungimu. Kalau sebuah blok tidak menjawab salah satunya, blok itu keluar.',
         'Hasilnya bukan portfolio yang paling ramai, tapi yang paling tenang dipakai. Dan itu justru yang saya inginkan: pengunjung datang untuk melihat karya, bukan untuk mengagumi efeknya.',
       ],
       en: [
-        'A good portfolio is not just a list of projects. It is the first product people try before they decide to reach out. That means every detail — load speed, animation rhythm, how a page responds to touch — speaks about how I work.',
+        'A good portfolio is not just a list of projects. It is the first product people try before they decide to reach out. That means every detail speaks about how I work: load speed, animation rhythm, how a page responds to touch.',
         'So I treat motion as information, not decoration. Smooth transitions reveal hierarchy; a well-timed pause gives room to read; small movements signal that something is clickable. Each of those needs a reason, otherwise it only adds cognitive load.',
         'Performance is the constraint that comes with it. Beautiful animation means nothing if the page takes five seconds to appear on a mid-range phone. I start with the cheapest option: CSS animation, transform and opacity, and only reach for JS when it is truly needed. Heavy effects like 3D load after the main content is ready.',
         'The decision I repeat most is cutting things. Every section has to answer one visitor question: who are you, what do you build, and how do I reach you. If a block does not answer one of those, it goes.',
@@ -95,14 +95,14 @@ const posts: RawPost[] = [
     },
     body: {
       id: [
-        'Sebagian besar developer web yang ingin masuk machine learning terjebak di awal yang salah: menghafal arsitektur model sebelum memahami datanya. Padahal pekerjaan ML yang sebenarnya hampir selalu dimulai dari pertanyaan sederhana — data apa yang saya punya, dan keputusan apa yang ingin saya bantu?',
+        'Sebagian besar developer web yang ingin masuk machine learning terjebak di awal yang salah: menghafal arsitektur model sebelum memahami datanya. Padahal pekerjaan ML yang sebenarnya hampir selalu dimulai dari pertanyaan sederhana: data apa yang saya punya, dan keputusan apa yang ingin saya bantu?',
         'Cara termurah untuk mulai adalah mengambil satu masalah yang benar-benar Anda hadapi. Misalnya mengklasifikasi pesan masuk, merangkum feedback pengguna, atau memprediksi apakah sebuah proyek akan terlambat. Tugas kecil seperti ini memberi siklus lengkap: kumpulkan data, bersihkan, latih, evaluasi, lalu deploy.',
         'Untuk tahap awal, model yang sederhana hampir selalu menang. Logistic regression dan decision tree mudah dijelaskan, cepat dilatih, dan jarang mengejutkan. Neural network baru masuk akal ketika datanya besar dan polanya tidak lagi bisa ditangkap fitur manual.',
         'Sisi web justru keunggulan Anda. Kemampuan membungkus model menjadi API, menangani validasi input, menulis error yang bisa dibaca, dan memantau performa di produksi adalah bagian yang paling sering diabaikan tim data. Di situlah developer web paling dibutuhkan.',
         'Yang terakhir, jangan mengejar sertifikat sebelum punya satu proyek utuh dari data mentah sampai endpoint yang bisa dipanggil. Satu proyek kecil yang selesai mengajarkan lebih banyak daripada sepuluh kursus yang berhenti di notebook.',
       ],
       en: [
-        'Most web developers who want to get into machine learning get stuck at the wrong starting point: memorizing model architectures before understanding the data. Real ML work almost always starts from a simple question — what data do I have, and what decision am I trying to support?',
+        'Most web developers who want to get into machine learning get stuck at the wrong starting point: memorizing model architectures before understanding the data. Real ML work almost always starts from a simple question: what data do I have, and what decision am I trying to support?',
         'The cheapest way to start is to take a problem you actually face. Classifying incoming messages, summarizing user feedback, or predicting whether a project will slip. A small task like that gives you the full cycle: collect data, clean it, train, evaluate, then deploy.',
         'For the early stage, simple models almost always win. Logistic regression and decision trees are easy to explain, fast to train, and rarely surprising. Neural networks only make sense once the data is large and the patterns can no longer be captured by hand-written features.',
         'The web side is your advantage. Wrapping a model into an API, handling input validation, writing readable errors, and monitoring production performance are the parts data teams most often neglect. That is where web developers are most needed.',
@@ -126,14 +126,14 @@ const posts: RawPost[] = [
     },
     body: {
       id: [
-        'Sistem desain sering dimulai dari hal yang salah: membuat library komponen. Padahal komponen tanpa keputusan bersama hanya memindahkan inkonsistensi ke dalam kode. Yang dibutuhkan lebih dulu adalah token — nilai-nilai dasar yang dipakai semua orang.',
+        'Sistem desain sering dimulai dari hal yang salah: membuat library komponen. Padahal komponen tanpa keputusan bersama hanya memindahkan inkonsistensi ke dalam kode. Yang dibutuhkan lebih dulu adalah token, yaitu nilai-nilai dasar yang dipakai semua orang.',
         'Token yang cukup untuk proyek kecil bisa dihitung dengan satu tangan: beberapa warna permukaan, satu warna aksen, dua warna teks, satu skala jarak, dan satu pasang font. Semuanya disimpan di satu tempat, biasanya CSS variable, lalu dipakai lewat utility class.',
         'Setelah token stabil, komponen tumbuh dengan sendirinya. Button, card, dan chip tidak lagi mendefinisikan warna sendiri; mereka merangkai token. Ketika tema berubah, satu file berubah dan seluruh halaman ikut.',
         'Kesalahan berikutnya adalah membuat abstraksi terlalu dini. Komponen dengan lima props untuk kasus yang belum ada adalah utang, bukan investasi. Saya lebih memilih menduplikasi dua baris class daripada membuat varian yang tidak terpakai.',
         'Sistem desain yang sehat terasa membosankan: semua orang tahu harus memakai apa. Kebosanan itu justru tujuannya, karena energi tim bisa dipakai untuk hal yang lebih menarik daripada mendebat abu-abu tombol.',
       ],
       en: [
-        'Design systems often start with the wrong thing: building a component library. Components without shared decisions only move inconsistency into code. What you need first are tokens — the base values everyone uses.',
+        'Design systems often start with the wrong thing: building a component library. Components without shared decisions only move inconsistency into code. What you need first are tokens, the base values everyone uses.',
         'Tokens for a small project fit on one hand: a few surface colors, one accent, two text colors, one spacing scale, and one font pair. They live in one place, usually CSS variables, and get consumed through utility classes.',
         'Once the tokens are stable, components grow on their own. Buttons, cards, and chips no longer define their own colors; they compose tokens. When the theme changes, one file changes and every page follows.',
         'The next mistake is abstracting too early. A component with five props for a case that does not exist yet is debt, not investment. I would rather duplicate two lines of classes than ship an unused variant.',
