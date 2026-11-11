@@ -3,6 +3,7 @@ import blog1Image from '../assets/blog/blog1.webp';
 import blog2Image from '../assets/blog/blog2.webp';
 import routerUsage from '../assets/blog/9router-usage.webp';
 import routerCover from '../assets/blog/9router-hero.webp';
+import openclawCover from '../assets/blog/openclaw-cover.svg';
 
 export type Cover = 'aurora' | 'grid' | 'beam';
 
@@ -21,6 +22,46 @@ interface RawPost {
 }
 
 const posts: RawPost[] = [
+  {
+    slug: 'openclaw-gateway-untuk-agen-ai',
+    date: '2026-11-11',
+    tags: ['AI', 'Tooling'],
+    readMinutes: 7,
+    cover: 'beam',
+    image: openclawCover,
+    title: {
+      id: 'OpenClaw: Gateway Mandiri untuk Agen AI di Aplikasi Chat',
+      en: 'OpenClaw: A Self-Hosted Gateway for AI Agents in Chat Apps',
+    },
+    excerpt: {
+      id: 'OpenClaw menyatukan WhatsApp, Telegram, Discord, dan kanal lain ke satu gateway yang menjalankan agen AI di perangkat sendiri.',
+      en: 'OpenClaw unifies WhatsApp, Telegram, Discord, and other channels into one gateway that runs AI agents on your own device.',
+    },
+    body: {
+      id: [
+        'Kalau 9Router merapikan jalan menuju banyak model, OpenClaw merapikan jalan dari banyak aplikasi chat menuju agen AI. Keduanya sama-sama lapisan perantara, hanya saja titik beratnya berbeda: 9Router berbicara soal model, sementara OpenClaw berbicara soal kanal percakapan.',
+        'OpenClaw adalah gateway yang dijalankan sendiri. Satu proses berjalan di komputer atau server milik Anda, lalu proses itu menjadi jembatan antara aplikasi chat dan asisten AI yang selalu siap. Yang dibutuhkan bukan langganan layanan pihak ketiga, melainkan satu proses yang Anda kendalikan sendiri.',
+        'Kanal masuknya banyak. WhatsApp, Telegram, Discord, Slack, Signal, iMessage, Google Chat, Microsoft Teams, hingga Matrix bisa disambungkan lewat plugin kanal. Semuanya bermuara di satu tempat, sehingga agen tidak perlu ditulis ulang untuk setiap aplikasi chat yang berbeda.',
+        'Di dalam gateway, sesi dan perutean disimpan sebagai satu sumber kebenaran. Pesan dari kanal berbeda diarahkan ke agen yang sesuai, lengkap dengan konteks percakapannya. Karena semuanya melewati satu titik, riwayat, identitas, dan aturan akses dapat dijaga secara konsisten.',
+        'Selain aplikasi chat, gateway juga melayani beberapa klien lain: CLI, web control UI, aplikasi macOS, serta node iOS dan Android. Semua klien itu berbicara lewat protokol WebSocket yang sama. Artinya, mengelola agen dari terminal dan dari ponsel pada dasarnya menyentuh sistem yang sama.',
+        'Agen di dalamnya bukan sekadar pembalas pesan. Ia bisa memanggil tools, membaca workspace, dan menjalankan tugas bertahap. Karena berjalan di mesin sendiri, batas kemampuan dan izin aksesnya bisa diatur sesuai kebutuhan, tanpa bergantung pada kebijakan penyedia luar.',
+        'Menariknya, lapisan ini bisa bertumpuk dengan router model. OpenClaw menangani kanal dan sesi, sementara 9Router menangani pemilihan model di belakangnya. Hasilnya satu jalur yang rapi dari pesan WhatsApp sampai jawaban model, masing-masing lapisan punya tugas yang jelas.',
+        'Untuk siapa ini berguna? Terutama bagi yang ingin asisten AI-nya hadir di aplikasi chat yang sudah dipakai sehari-hari, tetapi tetap ingin kendali penuh atas data dan prosesnya. Yang perlu disiapkan cukup satu mesin yang menyala, konfigurasi kanal, dan model yang siap dipanggil.',
+        'Catatan pentingnya, menjalankan gateway sendiri berarti tanggung jawabnya juga ikut sendiri: pembaruan, keamanan token, dan pemantauan proses ada di tangan Anda. Ini bukan kekurangan, melainkan konsekuensi wajar dari memilih kendali penuh dibanding kemudahan layanan siap pakai.',
+      ],
+      en: [
+        'If 9Router tidies the road to many models, OpenClaw tidies the road from many chat apps to an AI agent. Both are intermediary layers, only with different focus: 9Router is about models, while OpenClaw is about conversation channels.',
+        'OpenClaw is a gateway you host yourself. A single process runs on your own computer or server, and that process becomes the bridge between your chat apps and an always-available AI assistant. What you need is not a third-party subscription, but one process you control.',
+        'The inbound channels are many. WhatsApp, Telegram, Discord, Slack, Signal, iMessage, Google Chat, Microsoft Teams, and Matrix can be connected through channel plugins. They all converge in one place, so the agent does not need to be rewritten for every different chat app.',
+        'Inside the gateway, sessions and routing live as a single source of truth. Messages from different channels are directed to the right agent, complete with conversational context. Because everything passes through one point, history, identity, and access rules can be kept consistent.',
+        'Beyond chat apps, the gateway also serves several other clients: the CLI, the web control UI, the macOS app, and iOS and Android nodes. All of them speak over the same WebSocket protocol. That means managing agents from a terminal and from a phone touch the same system.',
+        'The agent inside is not just a message replier. It can call tools, read the workspace, and run multi-step tasks. Because it runs on your own machine, its capability limits and permissions can be configured to your needs without depending on an outside provider\u2019s policy.',
+        'Interestingly, this layer can stack with a model router. OpenClaw handles channels and sessions, while 9Router handles model selection behind it. The result is one tidy path from a WhatsApp message to a model answer, each layer with a clear job.',
+        'Who is this useful for? Mainly for those who want their AI assistant present in the chat apps they already use daily, while keeping full control over the data and the process. All you need is one machine that stays on, channel configuration, and a model ready to be called.',
+        'The important caveat: running your own gateway means the responsibility is yours too. Updates, token security, and process monitoring sit in your hands. That is not a flaw, but the natural consequence of choosing full control over the convenience of a ready-made service.',
+      ],
+    },
+  },
   {
     slug: 'kunjungan-pembimbing-magang-kampus',
     date: '2026-11-10',
