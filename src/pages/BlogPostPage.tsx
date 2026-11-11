@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Clock, CalendarDays, MessageCircle } from 'lucide-react';
@@ -77,7 +78,24 @@ export function BlogPostPage() {
 
         <article className="prose-futur mt-9">
           {post.body.map((par, i) => (
-            <p key={i}>{par}</p>
+            <Fragment key={i}>
+              <p>{par}</p>
+              {post.figure && post.figureAfter === i + 1 ? (
+                <figure className="mt-8">
+                  <div className="overflow-hidden rounded-2xl border border-white/12">
+                    <img
+                      src={post.figure.image}
+                      alt={post.figure.caption}
+                      loading="lazy"
+                      className="w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-3 border-l-2 border-electric/50 pl-3 text-[0.78rem] leading-relaxed text-slate-400">
+                    {post.figure.caption}
+                  </figcaption>
+                </figure>
+              ) : null}
+            </Fragment>
           ))}
         </article>
 
