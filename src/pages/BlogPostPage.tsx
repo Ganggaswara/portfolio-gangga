@@ -62,17 +62,19 @@ export function BlogPostPage() {
           ))}
         </div>
 
-        <div className={`${coverClass(post.cover)} relative mt-8 aspect-[16/8] overflow-hidden rounded-2xl border border-white/12`}>
+        <div className={`${coverClass(post.cover)} relative mt-8 overflow-hidden rounded-2xl border border-white/12 sm:-mx-8 lg:-mx-24`}>
           {post.image ? (
             <img
               src={post.image}
               alt={post.title}
-              className="absolute inset-0 z-[1] h-full w-full object-cover"
+              className="relative z-[1] h-auto w-full"
             />
           ) : (
-            <span className="absolute bottom-5 left-6 z-10 font-display text-7xl text-white/10 select-none">
-              {post.tags[0]}
-            </span>
+            <div className="relative aspect-[16/8]">
+              <span className="absolute bottom-5 left-6 z-10 font-display text-7xl text-white/10 select-none">
+                {post.tags[0]}
+              </span>
+            </div>
           )}
         </div>
 
