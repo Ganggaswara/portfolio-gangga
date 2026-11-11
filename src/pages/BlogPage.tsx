@@ -48,9 +48,6 @@ export function BlogPage() {
               <span className="absolute top-5 left-5 z-10 font-mono text-[0.6rem] tracking-[0.22em] text-white/70 uppercase">
                 {t.blog.featured}
               </span>
-              <span className="absolute bottom-5 left-5 z-10 font-display text-6xl text-white/15 select-none">
-                01
-              </span>
             </div>
             <div className="flex flex-col justify-center gap-4 p-7 sm:p-9">
               <div className="flex flex-wrap items-center gap-2">
@@ -104,9 +101,6 @@ export function BlogPage() {
                     />
                   </>
                 ) : null}
-                <span className="absolute top-4 left-4 z-10 font-mono text-[0.6rem] tracking-[0.22em] text-white/70 uppercase">
-                  {String(i + 2).padStart(2, '0')}
-                </span>
               </div>
               <div className="flex flex-1 flex-col gap-3 p-5">
                 <div className="flex items-center gap-2 font-mono text-[0.62rem] tracking-[0.16em] uppercase">
