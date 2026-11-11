@@ -3,7 +3,7 @@ import blog1Image from '../assets/blog/blog1.webp';
 import blog2Image from '../assets/blog/blog2.webp';
 import routerUsage from '../assets/blog/9router-usage.webp';
 import routerCover from '../assets/blog/9router-hero.webp';
-import openclawCover from '../assets/blog/openclaw-cover.svg';
+import openclawCover from '../assets/blog/openclaw-hero.webp';
 
 export type Cover = 'aurora' | 'grid' | 'beam';
 
